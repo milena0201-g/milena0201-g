@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milena Guevara · Diseño Gráfico Digital</title>
+    <meta
+      name="description"
+      content="Portafolio de Milena Guevara Sánchez, estudiante de Diseño Gráfico Digital en SENATI. Diseño visual, un poco de código y prompts para IA."
+    />
+    <meta name="author" content="Milena Guevara Sánchez" />
+    <meta name="theme-color" content="#0B0915" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://milena0201-g.github.io/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:title" content="Milena Guevara · Diseño Gráfico Digital" />
+    <meta property="og:description" content="Convierto ideas en diseño que no pasa desapercibido. Portafolio de Milena Guevara Sánchez: diseño, un poco de código e IA." />
+    <meta property="og:url" content="https://milena0201-g.github.io/" />
+    <meta property="og:image" content="https://milena0201-g.github.io/Assets/Images/OpenGraph.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Portafolio de Milena Guevara: Convierto ideas en diseño que no pasa desapercibido." />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="Assets/Icons/Favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="Assets/Icons/Favicon32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="Assets/Icons/AppleTouchIcon.png" />
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.add("Js");
+        var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+        var lang = "es";
+        for (var i = 0; i < list.length; i++) {
+          var code = String(list[i] || "").toLowerCase().slice(0, 2);
+          if (code === "es" || code === "en") {
+            lang = code;
+            break;
+          }
+        }
+        try {
+          localStorage.removeItem("MilenaLanguage");
+          var chosen = sessionStorage.getItem("MilenaLanguage");
+          if (chosen === "es" || chosen === "en") lang = chosen;
+        } catch (e) {}
+        root.setAttribute("lang", lang);
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="Css/Variables.css?v=19" />
+    <link rel="stylesheet" href="Css/Main.css?v=19" />
+    <link rel="stylesheet" href="Css/Components.css?v=19" />
+    <link rel="stylesheet" href="Css/Sections.css?v=19" />
+    <link rel="stylesheet" href="Css/Responsive.css?v=19" />
+  </head>
+
+  <body>
+    <svg class="SpriteSheet" aria-hidden="true" focusable="false">
+      <symbol id="Sparkle" viewBox="0 0 24 24">
+        <path d="M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0Z" />
+      </symbol>
+    </svg>
+
+    <a class="SkipLink" href="#contenido" data-i18n="common.skip">Saltar al contenido</a>
+
+    <header class="Navbar" data-navbar>
+      <span class="NavProgress" data-nav-progress aria-hidden="true"></span>
+      <div class="Container NavbarInner">
+        <a href="#inicio" class="Logo" aria-label="Milena, ir al inicio" data-i18n-aria="nav.logo">MILENA<span class="LogoDot">.</span></a>
+
+        <nav class="NavMenu" id="NavMenu" aria-label="Navegación principal" data-i18n-aria="nav.label" data-nav-menu>
+          <ul class="NavList" data-nav-list>
+            <li class="NavIndicator NavIndicatorHover" aria-hidden="true" data-nav-hover></li>
+            <li class="NavIndicator NavIndicatorActive" aria-hidden="true" data-nav-active></li>
+            <li><a class="NavLink" href="#inicio" data-nav-link><span class="NavIndex">00</span><span data-i18n="nav.home">Inicio</span></a></li>
+            <li><a class="NavLink" href="#sobre-mi" data-nav-link><span class="NavIndex">01</span><span data-i18n="nav.about">Sobre mí</span></a></li>
+            <li><a class="NavLink" href="#habilidades" data-nav-link><span class="NavIndex">02</span><span data-i18n="nav.skills">Herramientas</span></a></li>
+            <li><a class="NavLink" href="#codigo" data-nav-link><span class="NavIndex">03</span><span data-i18n="nav.code">Código & IA</span></a></li>
+            <li><a class="NavLink" href="#universo" data-nav-link><span class="NavIndex">04</span><span data-i18n="nav.universe">Universo</span></a></li>
+            <li><a class="NavLink" href="#formacion" data-nav-link><span class="NavIndex">05</span><span data-i18n="nav.education">Formación</span></a></li>
+            <li><a class="NavLink" href="#contacto" data-nav-link><span class="NavIndex">06</span><span data-i18n="nav.contact">Contacto</span></a></li>
+          </ul>
+          <p class="NavMenuFoot">
+            <svg class="InlineSparkle" aria-hidden="true"><use href="#Sparkle" /></svg>
+            <span data-i18n="nav.foot">Gracias por pasar ✦</span>
+          </p>
+        </nav>
+
+        <div class="NavActions">
+          <div class="LangSwitch" role="group" aria-label="Idioma" data-i18n-aria="lang.group" data-lang-switch>
+            <span class="LangThumb" aria-hidden="true"></span>
+            <button class="LangOption" type="button" data-lang="es" lang="es" aria-label="Español" aria-pressed="true">ES</button>
+            <button class="LangOption" type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+          </div>
+          <button class="MenuToggle" type="button" data-menu-toggle aria-controls="NavMenu" aria-expanded="false" aria-label="Abrir menú">
+            <span class="MenuToggleLine"></span>
+            <span class="MenuToggleLine"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section class="Hero" id="inicio" data-section aria-labelledby="HeroTitle">
+        <div class="Container HeroGrid">
+          <div class="HeroCopy">
+            <p class="Eyebrow HeroEyebrow" data-reveal>
+              <svg class="InlineSparkle" aria-hidden="true"><use href="#Sparkle" /></svg>
+              <span data-i18n="hero.eyebrow">Portafolio · diseño + código + IA</span>
+            </p>
+
+            <h1 class="HeroTitle" id="HeroTitle" data-i18n-html="hero.title">
+              <span class="Line"><span class="LineInner">Convierto ideas</span></span><span class="Line LineSerif LineShift"><span class="LineInner">en diseño que</span></span><span class="Line"><span class="LineInner">no pasa</span></span><span class="Line LineAccent"><span class="LineInner"><em>desapercibido.</em></span></span>
+            </h1>
+
+            <div class="HeroBottom">
+              <p class="HeroLead" data-reveal style="--RevealDelay: 520ms" data-i18n="hero.lead">Soy Milena. Mezclo color, forma y un poco de código para crear piezas visuales que se quedan en la memoria.</p>
+              <div class="HeroActions" data-reveal style="--RevealDelay: 620ms">
+                <a class="Button ButtonPrimary" href="#universo">
+                  <span data-i18n="hero.ctaUniverse">Ver lo que hago</span>
+                  <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                </a>
+                <a class="Button ButtonGhost" href="#contacto">
+                  <span data-i18n="hero.ctaContact">Hablemos</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="HeroArt" aria-hidden="true">
+            <div class="Artboard">
+              <span class="ArtboardTag">1440 × 900</span>
+              <span class="Handle HandleA"></span>
+              <span class="Handle HandleB"></span>
+              <span class="Handle HandleC"></span>
+              <span class="Handle HandleD"></span>
+            </div>
+
+            <span class="LimeDot HeroLime"></span>
+
+            <div class="CodeWindow HeroCode">
+              <div class="AppBar">
+                <span class="AppDot"></span><span class="AppDot"></span><span class="AppDot"></span>
+                <span class="AppFile">milena.html</span>
+              </div>
+              <div class="CodeBody">
+                <span class="CodeLine"><span class="TokTag">&lt;section</span> <span class="TokAttr">class</span>=<span class="TokString">"idea"</span><span class="TokTag">&gt;</span></span>
+                <span class="CodeLine CodeIndent"><span class="TokTag">&lt;h1&gt;</span>hola, mundo<span class="TokTag">&lt;/h1&gt;</span></span>
+                <span class="CodeLine"><span class="TokTag">&lt;/section&gt;</span></span>
+                <span class="CodeLine CodeGap"></span>
+                <span class="CodeLine"><span class="TokString">.idea</span> {</span>
+                <span class="CodeLine CodeIndent"><span class="TokAttr">color</span>: <span class="CodeChip"></span>#7954f6;</span>
+                <span class="CodeLine CodeIndent"><span class="TokAttr">font-weight</span>: <span class="TokNumber">800</span>;</span>
+                <span class="CodeLine">}<span class="Caret"></span></span>
+              </div>
+            </div>
+
+            <div class="Badge HeroBadge">
+              <svg class="BadgeRing" viewBox="0 0 200 200">
+                <defs>
+                  <path id="BadgePath" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0" />
+                </defs>
+                <text>
+                  <textPath href="#BadgePath" data-i18n="hero.badge">crear ✦ probar ✦ imaginar ✦ diseñar ✦</textPath>
+                </text>
+              </svg>
+              <svg class="BadgeCenter"><use href="#Sparkle" /></svg>
+            </div>
+
+            <div class="AppWindow HeroWindow">
+              <div class="AppBar">
+                <span class="AppDot"></span><span class="AppDot"></span><span class="AppDot"></span>
+                <span class="AppFile">pop.palette</span>
+              </div>
+              <div class="AppBody">
+                <span class="Swatch SwatchViolet"></span>
+                <span class="Swatch SwatchPink"></span>
+                <span class="Swatch SwatchLilac"></span>
+                <span class="Swatch SwatchLime"></span>
+              </div>
+              <i class="fa-solid fa-arrow-pointer AppCursor"></i>
+            </div>
+
+            <div class="PromptCard HeroPrompt">
+              <span class="PromptLabel"><svg class="InlineSparkle"><use href="#Sparkle" /></svg>prompt</span>
+              <p class="PromptText"><span data-i18n="hero.prompt">póster pop en violeta y lima, tipografía bold, mucho contraste</span><span class="Caret"></span></p>
+            </div>
+
+            <svg class="Sparkle HeroStarOne"><use href="#Sparkle" /></svg>
+            <svg class="Sparkle HeroStarTwo"><use href="#Sparkle" /></svg>
+          </div>
+        </div>
+
+        <a class="ScrollCue" href="#sobre-mi">
+          <span class="ScrollCueDot" aria-hidden="true"></span>
+          <span data-i18n="hero.scroll">Desliza</span>
+        </a>
+
+        <div class="Ticker TickerHero" aria-hidden="true">
+          <div class="TickerTrack" data-ticker></div>
+        </div>
+      </section>
+
+      <section class="Section About" id="sobre-mi" data-section data-mark="HELLO" aria-labelledby="AboutTitle">
+        <div class="Deco" aria-hidden="true">
+          <svg class="DecoItem DecoStar" style="--X: 92%; --Y: 16%; --Depth: 30"><use href="#Sparkle" /></svg>
+          <span class="DecoItem DecoRing" style="--X: 30%; --Y: 86%; --Depth: -20"></span>
+          <span class="DecoItem DecoDot" style="--X: 52%; --Y: 22%; --Depth: 45"></span>
+        </div>
+
+        <div class="Container AboutGrid">
+          <div class="AboutAside">
+
+            <div class="AboutYears" data-reveal style="--RevealDelay: 120ms">
+              <span class="AboutYearsNumber" data-i18n="about.hello">¡Hola!</span>
+              <span class="AboutYearsText" data-i18n="about.years">pasa, este es mi rincón</span>
+            </div>
+
+            <div class="AboutStickers" aria-hidden="true">
+              <span class="Sticker" data-i18n="about.sticker">modo inspiración: on</span>
+              <span class="CodeTag AboutTag">&lt;/&gt;</span>
+              <svg class="Sparkle AboutStar"><use href="#Sparkle" /></svg>
+            </div>
+          </div>
+
+          <div class="AboutMain">
+            <h2 class="SectionTitle" id="AboutTitle" data-reveal data-i18n-html="about.title">
+              Curiosa por naturaleza, <em>creativa por elección.</em>
+            </h2>
+
+            <p class="AboutText" data-reveal style="--RevealDelay: 120ms" data-i18n-html="about.text">
+              Me gusta que cada pieza tenga una intención: que <mark>comunique algo antes de leer una sola palabra.</mark> Disfruto el proceso tanto como el resultado: bocetar, probar combinaciones, equivocarme y volver a empezar hasta que la idea se ve como la imaginé.
+            </p>
+
+            <ul class="AboutValues" data-reveal style="--RevealDelay: 200ms">
+              <li class="AboutValue">
+                <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+                <span data-i18n="about.value1">Observar los detalles</span>
+              </li>
+              <li class="AboutValue">
+                <i class="fa-solid fa-flask" aria-hidden="true"></i>
+                <span data-i18n="about.value2">Probar sin miedo</span>
+              </li>
+              <li class="AboutValue">
+                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                <span data-i18n="about.value3">Encontrar mi estilo</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="Section Toolkit" id="habilidades" data-section data-mark="TOOLS" aria-labelledby="ToolkitTitle">
+        <div class="Deco" aria-hidden="true">
+          <svg class="DecoItem DecoStar DecoLime" style="--X: 46%; --Y: 80%; --Depth: 35"><use href="#Sparkle" /></svg>
+          <span class="DecoItem DecoPlus" style="--X: 8%; --Y: 18%; --Depth: -25">+</span>
+          <span class="DecoItem DecoDot DecoPink" style="--X: 94%; --Y: 86%; --Depth: 40"></span>
+        </div>
+
+        <div class="Container ToolkitLayout">
+          <header class="ToolkitHead">
+            <h2 class="SectionTitle" id="ToolkitTitle" data-reveal data-i18n-html="tools.title">
+              Las herramientas con las que <em>creo.</em>
+            </h2>
+            <p class="SectionLead" data-reveal style="--RevealDelay: 120ms" data-i18n="tools.lead">Mi set de trabajo para llevar cualquier idea del boceto a la pantalla.</p>
+            <p class="ToolkitNote" data-reveal style="--RevealDelay: 200ms">
+              <svg class="InlineSparkle" aria-hidden="true"><use href="#Sparkle" /></svg>
+              <span data-i18n="tools.note">Cada herramienta, una forma distinta de experimentar.</span>
+            </p>
+          </header>
+
+          <div class="Workspace" data-reveal style="--RevealDelay: 120ms" data-tools>
+            <div class="ToolTabs" role="tablist" aria-label="Herramientas" data-i18n-aria="tools.tabs">
+              <button class="ToolTab" type="button" role="tab" id="ToolTab-ps" aria-controls="ToolPanel-ps" aria-selected="true" tabindex="0" style="--ToolInk: #001e36; --ToolColor: #31a8ff" data-tool-tab>
+                <span class="ToolTabMark" aria-hidden="true">Ps</span>
+                <span class="ToolTabName">Photoshop</span>
+                <span class="ToolTabExt" aria-hidden="true">.psd</span>
+              </button>
+              <button class="ToolTab" type="button" role="tab" id="ToolTab-ai" aria-controls="ToolPanel-ai" aria-selected="false" tabindex="-1" style="--ToolInk: #330000; --ToolColor: #ff9a00" data-tool-tab>
+                <span class="ToolTabMark" aria-hidden="true">Ai</span>
+                <span class="ToolTabName">Illustrator</span>
+                <span class="ToolTabExt" aria-hidden="true">.ai</span>
+              </button>
+              <button class="ToolTab" type="button" role="tab" id="ToolTab-cd" aria-controls="ToolPanel-cd" aria-selected="false" tabindex="-1" style="--ToolInk: #0b2a17; --ToolColor: #5fc15a" data-tool-tab>
+                <span class="ToolTabMark" aria-hidden="true"><i class="fa-solid fa-pen-nib"></i></span>
+                <span class="ToolTabName">CorelDRAW</span>
+                <span class="ToolTabExt" aria-hidden="true">.cdr</span>
+              </button>
+              <button class="ToolTab" type="button" role="tab" id="ToolTab-xd" aria-controls="ToolPanel-xd" aria-selected="false" tabindex="-1" style="--ToolInk: #470137; --ToolColor: #ff61f6" data-tool-tab>
+                <span class="ToolTabMark" aria-hidden="true">Xd</span>
+                <span class="ToolTabName">XD</span>
+                <span class="ToolTabExt" aria-hidden="true">.xd</span>
+              </button>
+              <button class="ToolTab" type="button" role="tab" id="ToolTab-fg" aria-controls="ToolPanel-fg" aria-selected="false" tabindex="-1" style="--ToolInk: #1e1e1e; --ToolColor: #a259ff" data-tool-tab>
+                <span class="ToolTabMark" aria-hidden="true"><i class="fa-brands fa-figma"></i></span>
+                <span class="ToolTabName">Figma</span>
+                <span class="ToolTabExt" aria-hidden="true">.fig</span>
+              </button>
+            </div>
+            <div class="ToolPanels">
+              <article class="ToolPanel IsActive" role="tabpanel" id="ToolPanel-ps" aria-labelledby="ToolTab-ps" style="--ToolInk: #001e36; --ToolColor: #31a8ff" data-tool-panel>
+                <span class="ToolPanelExt" aria-hidden="true">.psd</span>
+                <span class="ToolPanelMark" aria-hidden="true">Ps</span>
+                <div class="ToolPanelInfo">
+                  <p class="ToolPanelBrand">Adobe</p>
+                  <h3 class="ToolPanelName">Photoshop</h3>
+                  <p class="ToolPanelText" data-i18n="tools.ps">Retoque, fotomontajes y tratamiento de imágenes.</p>
+                </div>
+              </article>
+              <article class="ToolPanel" role="tabpanel" id="ToolPanel-ai" aria-labelledby="ToolTab-ai" style="--ToolInk: #330000; --ToolColor: #ff9a00" hidden data-tool-panel>
+                <span class="ToolPanelExt" aria-hidden="true">.ai</span>
+                <span class="ToolPanelMark" aria-hidden="true">Ai</span>
+                <div class="ToolPanelInfo">
+                  <p class="ToolPanelBrand">Adobe</p>
+                  <h3 class="ToolPanelName">Illustrator</h3>
+                  <p class="ToolPanelText" data-i18n="tools.ai">Vectores, logotipos y piezas gráficas.</p>
+                </div>
+              </article>
+              <article class="ToolPanel" role="tabpanel" id="ToolPanel-cd" aria-labelledby="ToolTab-cd" style="--ToolInk: #0b2a17; --ToolColor: #5fc15a" hidden data-tool-panel>
+                <span class="ToolPanelExt" aria-hidden="true">.cdr</span>
+                <span class="ToolPanelMark" aria-hidden="true"><i class="fa-solid fa-pen-nib"></i></span>
+                <div class="ToolPanelInfo">
+                  <p class="ToolPanelBrand">Corel</p>
+                  <h3 class="ToolPanelName">CorelDRAW</h3>
+                  <p class="ToolPanelText" data-i18n="tools.cd">Diseño para impresión y trazos limpios.</p>
+                </div>
+              </article>
+              <article class="ToolPanel" role="tabpanel" id="ToolPanel-xd" aria-labelledby="ToolTab-xd" style="--ToolInk: #470137; --ToolColor: #ff61f6" hidden data-tool-panel>
+                <span class="ToolPanelExt" aria-hidden="true">.xd</span>
+                <span class="ToolPanelMark" aria-hidden="true">Xd</span>
+                <div class="ToolPanelInfo">
+                  <p class="ToolPanelBrand">Adobe</p>
+                  <h3 class="ToolPanelName">XD</h3>
+                  <p class="ToolPanelText" data-i18n="tools.xd">Pantallas y flujos para apps y sitios web.</p>
+                </div>
+              </article>
+              <article class="ToolPanel" role="tabpanel" id="ToolPanel-fg" aria-labelledby="ToolTab-fg" style="--ToolInk: #1e1e1e; --ToolColor: #a259ff" hidden data-tool-panel>
+                <span class="ToolPanelExt" aria-hidden="true">.fig</span>
+                <span class="ToolPanelMark" aria-hidden="true"><i class="fa-brands fa-figma"></i></span>
+                <div class="ToolPanelInfo">
+                  <p class="ToolPanelBrand">Figma</p>
+                  <h3 class="ToolPanelName">Figma</h3>
+                  <p class="ToolPanelText" data-i18n="tools.fg">Prototipos interactivos y trabajo colaborativo en tiempo real.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="Section Code" id="codigo" data-section data-mark="CODE" aria-labelledby="CodeTitle">
+        <div class="Deco" aria-hidden="true">
+          <span class="DecoItem DecoBrace" style="--X: 50%; --Y: 14%; --Depth: 30">{ }</span>
+          <svg class="DecoItem DecoStar" style="--X: 6%; --Y: 84%; --Depth: -30"><use href="#Sparkle" /></svg>
+          <span class="DecoItem DecoRing" style="--X: 95%; --Y: 12%; --Depth: 25"></span>
+        </div>
+
+        <div class="Container CodeGrid">
+          <div class="CodeCopy">
+            <h2 class="SectionTitle" id="CodeTitle" data-reveal data-i18n-html="code.title">
+              Del diseño al <em>código.</em>
+            </h2>
+            <p class="SectionLead" data-reveal style="--RevealDelay: 120ms" data-i18n="code.lead">No soy programadora, pero me gusta entender cómo se construye lo que diseño. Conozco lo básico, lo suficiente para dar vida a una idea.</p>
+            <p class="CodeHonest" data-reveal style="--RevealDelay: 200ms">
+              <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+              <span data-i18n="code.note">Un paso más allá del diseño.</span>
+            </p>
+          </div>
+
+          <div class="CodeWindow Terminal" data-reveal style="--RevealDelay: 120ms">
+            <div class="AppBar" aria-hidden="true">
+              <span class="AppDot"></span><span class="AppDot"></span><span class="AppDot"></span>
+              <span class="AppFile">skills.js</span>
+            </div>
+            <ul class="Stack">
+              <li class="StackItem" style="--StackColor: #e44d26">
+                <span class="StackIcon" aria-hidden="true"><i class="fa-brands fa-html5"></i></span>
+                <div class="StackBody">
+                  <h3 class="StackName">HTML</h3>
+                  <p class="StackText" data-i18n="code.html">Estructuro páginas sencillas y entiendo cómo se organiza el contenido.</p>
+                </div>
+              </li>
+              <li class="StackItem" style="--StackColor: #2965f1">
+                <span class="StackIcon" aria-hidden="true"><i class="fa-brands fa-css3-alt"></i></span>
+                <div class="StackBody">
+                  <h3 class="StackName">CSS</h3>
+                  <p class="StackText" data-i18n="code.css">Colores, tipografías y layouts simples para dar estilo.</p>
+                </div>
+              </li>
+              <li class="StackItem" style="--StackColor: #f7df1e">
+                <span class="StackIcon" aria-hidden="true"><i class="fa-brands fa-js"></i></span>
+                <div class="StackBody">
+                  <h3 class="StackName">JavaScript</h3>
+                  <p class="StackText" data-i18n="code.js">Pequeñas interacciones, todavía dando mis primeros pasos.</p>
+                </div>
+              </li>
+              <li class="StackItem" style="--StackColor: #b9a5ff">
+                <span class="StackIcon" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                <div class="StackBody">
+                  <h3 class="StackName" data-i18n="code.ainame">Prompts para IA</h3>
+                  <p class="StackText" data-i18n="code.ai">Escribo prompts claros para generar referencias, moodboards e imágenes. Es donde más cómoda me siento.</p>
+                </div>
+              </li>
+            </ul>
+            <p class="TerminalPrompt" aria-hidden="true"><span class="TerminalSign">&gt;</span> <span data-i18n="code.prompt">ia.prompt("ideas para mi próximo póster")</span><span class="Caret"></span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="Section Universe" id="universo" data-section data-mark="IDEAS" aria-labelledby="UniverseTitle">
+        <div class="Deco" aria-hidden="true">
+          <svg class="DecoItem DecoStar DecoLime" style="--X: 30%; --Y: 14%; --Depth: 35"><use href="#Sparkle" /></svg>
+          <span class="DecoItem DecoDot DecoPink" style="--X: 8%; --Y: 82%; --Depth: -30"></span>
+        </div>
+
+        <div class="Container UniverseLayout">
+          <header class="SectionHead UniverseHead">
+            <h2 class="SectionTitle" id="UniverseTitle" data-reveal data-i18n-html="universe.title">
+              Lo que más disfruto <em>crear.</em>
+            </h2>
+            <p class="SectionLead" data-reveal style="--RevealDelay: 120ms" data-i18n="universe.lead">Las áreas donde se me pasan las horas sin darme cuenta.</p>
+          </header>
+
+          <div class="UniverseCanvas">
+            <div class="UniverseOrbit" aria-hidden="true">
+              <span class="OrbitRing OrbitRingOuter"></span>
+              <span class="OrbitRing OrbitRingInner"></span>
+              <span class="OrbitSpin"><span class="OrbitSatellite"></span></span>
+            </div>
+
+            <ul class="UniverseList">
+              <li class="Planet PlanetIdentity" data-reveal>
+                <div class="PlanetArt" aria-hidden="true">
+                  <svg class="IdentityBurst" viewBox="0 0 100 100"><polygon points="50,0 61,13 77,6 80,23 97,25 90,41 100,54 86,63 89,80 72,80 63,95 50,86 37,95 28,80 11,80 14,63 0,54 10,41 3,25 20,23 23,6 39,13" /></svg>
+                  <span class="IdentityMark">MG<span>.</span></span>
+                </div>
+                <div class="PlanetInfo">
+                  <span class="PlanetNumber">01</span>
+                  <h3 class="PlanetTitle" data-i18n="universe.identity">Identidad visual</h3>
+                </div>
+              </li>
+
+              <li class="Planet PlanetComposition" data-reveal style="--RevealDelay: 80ms">
+                <div class="PlanetArt" aria-hidden="true">
+                  <span class="ComposeGrid"></span>
+                  <span class="ComposeCircle"></span>
+                  <span class="ComposeSquare"></span>
+                  <span class="ComposeLine"></span>
+                </div>
+                <div class="PlanetInfo">
+                  <span class="PlanetNumber">02</span>
+                  <h3 class="PlanetTitle" data-i18n="universe.composition">Composición</h3>
+                </div>
+              </li>
+
+              <li class="Planet PlanetColor" data-reveal style="--RevealDelay: 160ms">
+                <div class="PlanetArt" aria-hidden="true">
+                  <div class="Specimen">
+                    <span class="SpecimenSerif">Aa</span>
+                    <span class="SpecimenSans">Aa</span>
+                  </div>
+                  <div class="ChipRow">
+                    <span class="Chip ChipViolet"></span>
+                    <span class="Chip ChipPink"></span>
+                    <span class="Chip ChipLilac"></span>
+                    <span class="Chip ChipLime"></span>
+                  </div>
+                </div>
+                <div class="PlanetInfo">
+                  <span class="PlanetNumber">03</span>
+                  <h3 class="PlanetTitle" data-i18n="universe.color">Color y tipografía</h3>
+                </div>
+              </li>
+
+              <li class="Planet PlanetIllustration" data-reveal style="--RevealDelay: 80ms">
+                <div class="PlanetArt" aria-hidden="true">
+                  <svg class="PenArt" viewBox="0 0 200 150" fill="none">
+                    <defs>
+                      <linearGradient id="PenGradient" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#f28acb" />
+                        <stop offset="0.5" stop-color="#e95baa" />
+                        <stop offset="1" stop-color="#7954f6" />
+                      </linearGradient>
+                    </defs>
+                    <path class="PenShape" d="M40 112 C 20 60, 70 18, 118 30 S 190 82, 150 118 S 60 150, 40 112 Z" />
+                    <g class="PenGuides">
+                      <line x1="40" y1="112" x2="20" y2="60" />
+                      <line x1="118" y1="30" x2="80" y2="20" />
+                      <line x1="118" y1="30" x2="156" y2="40" />
+                      <line x1="150" y1="118" x2="176" y2="94" />
+                      <circle cx="20" cy="60" r="3.5" />
+                      <circle cx="80" cy="20" r="3.5" />
+                      <circle cx="156" cy="40" r="3.5" />
+                      <circle cx="176" cy="94" r="3.5" />
+                      <rect x="35" y="107" width="10" height="10" />
+                      <rect x="113" y="25" width="10" height="10" />
+                      <rect x="145" y="113" width="10" height="10" />
+                    </g>
+                  </svg>
+                  <i class="fa-solid fa-pen-nib PenNib"></i>
+                </div>
+                <div class="PlanetInfo">
+                  <span class="PlanetNumber">04</span>
+                  <h3 class="PlanetTitle" data-i18n="universe.illustration">Ilustración</h3>
+                </div>
+              </li>
+
+              <li class="Planet PlanetPhoto" data-reveal style="--RevealDelay: 160ms">
+                <div class="PlanetArt" aria-hidden="true">
+                  <div class="PhotoFrame">
+                    <span class="PhotoSun"></span>
+                    <span class="PhotoHill"></span>
+                    <span class="PhotoHill PhotoHillBack"></span>
+                  </div>
+                  <div class="Adjust">
+                    <span class="AdjustRow"><span data-i18n="universe.adjust1">Exposición</span><span class="AdjustTrack" style="--Knob: 62%"></span></span>
+                    <span class="AdjustRow"><span data-i18n="universe.adjust2">Contraste</span><span class="AdjustTrack" style="--Knob: 38%"></span></span>
+                    <span class="AdjustRow"><span data-i18n="universe.adjust3">Saturación</span><span class="AdjustTrack" style="--Knob: 74%"></span></span>
+                  </div>
+                </div>
+                <div class="PlanetInfo">
+                  <span class="PlanetNumber">05</span>
+                  <h3 class="PlanetTitle" data-i18n="universe.photo">Edición fotográfica</h3>
+                </div>
+              </li>
+
+              <li class="Planet PlanetDigital" data-reveal style="--RevealDelay: 240ms">
+                <div class="PlanetArt" aria-hidden="true">
+                  <div class="PhoneMock">
+                    <span class="PhoneNotch"></span>
+                    <span class="PhoneHero"></span>
+                    <span class="PhoneText"></span>
+                    <span class="PhoneText PhoneTextShort"></span>
+                    <span class="PhoneButton"></span>
+                  </div>
+                  <i class="fa-solid fa-arrow-pointer DigitalCursor"></i>
+                </div>
+                <div class="PlanetInfo">
+                  <span class="PlanetNumber">06</span>
+                  <h3 class="PlanetTitle" data-i18n="universe.digital">Diseño digital</h3>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="Section Education" id="formacion" data-section data-mark="LEARN" aria-labelledby="EducationTitle">
+        <div class="Deco" aria-hidden="true">
+          <svg class="DecoItem DecoStar" style="--X: 88%; --Y: 20%; --Depth: 30"><use href="#Sparkle" /></svg>
+          <span class="DecoItem DecoRing" style="--X: 12%; --Y: 80%; --Depth: -25"></span>
+          <span class="DecoItem DecoPlus" style="--X: 70%; --Y: 82%; --Depth: 40">+</span>
+          <span class="DecoItem DecoDot" style="--X: 56%; --Y: 18%; --Depth: -35"></span>
+        </div>
+
+        <div class="Container">
+          <header class="SectionHead EducationHead">
+            <h2 class="SectionTitle" id="EducationTitle" data-reveal data-i18n-html="education.title">
+              Aquí empieza <em>mi historia.</em>
+            </h2>
+          </header>
+
+          <ol class="Path" data-reveal style="--RevealDelay: 120ms">
+            <li class="PathStop">
+              <span class="PathNode" aria-hidden="true"></span>
+              <span class="PathLabel" data-i18n="education.institution">Institución</span>
+              <span class="PathValue PathValueBig">SENATI</span>
+            </li>
+            <li class="PathStop">
+              <span class="PathNode" aria-hidden="true"></span>
+              <span class="PathLabel" data-i18n="education.career">Carrera</span>
+              <span class="PathValue" data-i18n="common.role">Diseño Gráfico Digital</span>
+            </li>
+            <li class="PathStop PathStopNow">
+              <span class="PathNode PathNodeNow" aria-hidden="true"></span>
+              <span class="PathLabel" data-i18n="education.status">Estado</span>
+              <span class="PathValue"><span class="StatusPill" data-i18n="education.statusValue">En curso</span></span>
+            </li>
+            <li class="PathStop PathStopNext" aria-hidden="true">
+              <span class="PathNode PathNodeNext"><i class="fa-solid fa-arrow-right"></i></span>
+              <span class="PathNextText" data-i18n="education.next">próximo nivel…</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="Section Contact" id="contacto" data-section aria-labelledby="ContactTitle">
+        <div class="Container ContactGrid">
+          <div class="ContactCopy">
+            <h2 class="ContactTitle" id="ContactTitle" data-reveal data-i18n-html="contact.title">
+              ¿Tienes una <em>idea?</em>
+            </h2>
+            <p class="ContactText" data-reveal style="--RevealDelay: 120ms" data-i18n="contact.text">Escríbeme y conversemos. Me encanta conocer proyectos nuevos y personas con ganas de crear.</p>
+          </div>
+
+          <div class="ContactPanel" data-reveal style="--RevealDelay: 180ms">
+            <div class="ContactArt" aria-hidden="true">
+              <span class="CodeTag ContactTag">@</span>
+              <svg class="Sparkle ContactStar"><use href="#Sparkle" /></svg>
+            </div>
+
+            <div class="Channel">
+              <span class="ChannelLabel"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span data-i18n="contact.emailLabel">Correo electrónico</span></span>
+              <div class="ChannelRow">
+                <a class="ChannelValue" href="mailto:milenita020105@gmail.com">milenita020105<wbr />@gmail.com</a>
+                <button class="CopyButton" type="button" data-copy="milenita020105@gmail.com" aria-label="Copiar correo" data-i18n-aria="contact.copy">
+                  <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  <span class="CopyFeedback" data-i18n="contact.copied" aria-hidden="true">¡Copiado!</span>
+                </button>
+              </div>
+            </div>
+            <div class="Channel">
+              <span class="ChannelLabel"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>LinkedIn</span>
+              <a class="ChannelValue ChannelLink" href="https://www.linkedin.com/in/milena-guevara-s%C3%A1nchez-2a94343a3/" target="_blank" rel="noopener noreferrer">in/milena-guevara<i class="fa-solid fa-arrow-up-right-from-square ChannelArrow" aria-hidden="true"></i><span class="VisuallyHidden" data-i18n="common.newTab">(se abre en una pestaña nueva)</span></a>
+            </div>
+          </div>
+        </div>
+        <p class="VisuallyHidden" role="status" aria-live="polite" data-copy-status></p>
+
+        <footer class="Footer" role="contentinfo">
+          <div class="Container">
+            <p class="FooterWordmark" aria-hidden="true">MILENA<span>.</span></p>
+
+            <div class="FooterBottom">
+              <p>© <span data-year>2026</span> Milena Guevara Sánchez</p>
+              <p class="FooterMade">
+                <svg class="InlineSparkle" aria-hidden="true"><use href="#Sparkle" /></svg>
+                <span data-i18n="footer.made">Hecho a mano, píxel a píxel.</span>
+              </p>
+              <a class="BackToTop" href="#inicio"><span data-i18n="footer.top">Volver arriba</span> <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+
+    <div class="Curtain" aria-hidden="true" data-curtain>
+      <span class="CurtainPanel CurtainPanelPink"></span>
+      <span class="CurtainPanel CurtainPanelViolet"></span>
+      <span class="CurtainMark">MILENA<span>.</span></span>
+    </div>
+
+    <script src="Js/Language.js?v=19"></script>
+    <script src="Js/Navigation.js?v=19" defer></script>
+    <script src="Js/Animations.js?v=19" defer></script>
+    <script src="Js/Transitions.js?v=19" defer></script>
+    <script src="Js/Main.js?v=19" defer></script>
+  </body>
+</html>

@@ -1,0 +1,1903 @@
+.Hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--NavHeight) + var(--ViewSpace));
+  padding-bottom: calc(var(--TickerBand) + var(--ViewSpace) + 1.5rem);
+  overflow: hidden;
+}
+
+.HeroGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+  column-gap: clamp(1rem, 2vw, 2rem);
+}
+
+.HeroCopy {
+  grid-column: 1 / 9;
+  grid-row: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.HeroEyebrow {
+  margin-bottom: clamp(0.9rem, 3vh, 2.4rem);
+}
+
+.HeroTitle {
+  font-size: var(--SizeHero);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  margin-bottom: clamp(1rem, 3vh, 2.5rem);
+}
+
+.Line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.LineInner {
+  display: inline-block;
+}
+
+.Js .LineInner {
+  transform: translateY(108%);
+  transition: transform 1.1s var(--EaseOut);
+}
+
+.Js.IsReady .LineInner {
+  transform: none;
+}
+
+.Js .Line:nth-child(2) .LineInner {
+  transition-delay: 90ms;
+}
+
+.Js .Line:nth-child(3) .LineInner {
+  transition-delay: 180ms;
+}
+
+.Js .Line:nth-child(4) .LineInner {
+  transition-delay: 270ms;
+}
+
+.LineSerif {
+  font-family: var(--FontSerif);
+  font-weight: 400;
+  font-size: 0.8em;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.LineShift {
+  padding-left: 1.6em;
+}
+
+.LineShiftLarge {
+  padding-left: 1.1em;
+}
+
+.LineAccent {
+  font-size: 1.12em;
+  line-height: 0.95;
+}
+
+.LineAccent em {
+  position: relative;
+  color: var(--ColorAccent);
+}
+
+.HeroBottom {
+  display: grid;
+  gap: clamp(1rem, 3vh, 1.75rem);
+  max-width: 40rem;
+  margin-left: clamp(0rem, 9vw, 9rem);
+}
+
+.HeroLead {
+  font-size: var(--SizeLead);
+  line-height: 1.7;
+  color: var(--ColorMuted);
+}
+
+.HeroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.HeroArt {
+  grid-column: 8 / 13;
+  grid-row: 1;
+  position: relative;
+  aspect-ratio: 1 / 1.08;
+  width: min(118%, 54vh);
+  margin-left: -6%;
+  justify-self: center;
+}
+
+.HeroArt > * {
+  position: absolute;
+  pointer-events: none;
+}
+
+.HeroArt .HeroWindow,
+.HeroArt .HeroCode,
+.HeroArt .HeroPrompt {
+  pointer-events: auto;
+}
+
+.Artboard {
+  inset: 8% 2% 12% 12%;
+  border: 1.5px dashed var(--ColorAccent);
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--Pink) 30%, transparent), transparent 55%),
+    radial-gradient(circle at 25% 80%, color-mix(in srgb, var(--Violet) 28%, transparent), transparent 60%);
+}
+
+.ArtboardTag {
+  position: absolute;
+  left: -1.5px;
+  top: -26px;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px 4px 0 0;
+  background: var(--ColorAccent);
+  color: var(--ColorOnAccent);
+  font-family: var(--FontMono);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.Handle {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid var(--ColorAccent);
+  background: var(--ColorBackground);
+}
+
+.HandleA { left: -6px; top: -6px; }
+.HandleB { right: -6px; top: -6px; }
+.HandleC { left: -6px; bottom: -6px; }
+.HandleD { right: -6px; bottom: -6px; }
+
+.CodeWindow {
+  border: 2px solid var(--ColorEdge);
+  border-radius: 16px;
+  background: var(--CodeBackground);
+  color: #e9e3ff;
+  box-shadow: var(--ShadowCard);
+  overflow: hidden;
+}
+
+.CodeWindow .AppBar {
+  border-radius: 0;
+  border-bottom-color: var(--ColorEdge);
+  background: #241b45;
+}
+
+.CodeWindow .AppFile {
+  color: #cfc4ff;
+  font-family: var(--FontMono);
+  font-weight: 500;
+}
+
+.CodeBody {
+  display: grid;
+  padding: 0.9rem 1rem 1rem;
+  font-family: var(--FontMono);
+  font-size: clamp(0.7rem, 0.45rem + 0.55vw, 0.92rem);
+  line-height: 1.75;
+  counter-reset: Line;
+  white-space: nowrap;
+}
+
+.CodeLine {
+  display: block;
+  min-height: 1.75em;
+}
+
+.CodeLine::before {
+  counter-increment: Line;
+  content: counter(Line);
+  display: inline-block;
+  width: 1.8em;
+  color: #5d5288;
+}
+
+.CodeIndent::before {
+  width: 3.2em;
+}
+
+.TokTag {
+  color: #ff8fd0;
+}
+
+.TokAttr {
+  color: #b9a5ff;
+}
+
+.TokString {
+  color: #d6f36a;
+}
+
+.TokNumber {
+  color: #7fd8ff;
+}
+
+.CodeChip {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-right: 0.35em;
+  border-radius: 3px;
+  background: var(--Violet);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.4);
+}
+
+.Caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.1em;
+  margin-left: 0.2em;
+  vertical-align: -0.15em;
+  background: var(--Lime);
+  animation: Blink 1s steps(1) infinite;
+}
+
+@keyframes Blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.HeroCode {
+  width: 64%;
+  left: 0;
+  top: 20%;
+  rotate: -4deg;
+  transition: rotate var(--Medium) var(--EaseBounce);
+}
+
+.HeroCode:hover {
+  rotate: 0deg;
+}
+
+.HeroLime {
+  width: 4.5%;
+  right: 30%;
+  top: 4%;
+}
+
+.HeroBadge {
+  width: 27%;
+  right: 0;
+  top: 0;
+}
+
+.HeroWindow {
+  width: 42%;
+  right: 0;
+  bottom: 30%;
+  rotate: 6deg;
+  transition: rotate var(--Medium) var(--EaseBounce);
+}
+
+.HeroWindow:hover {
+  rotate: 0deg;
+}
+
+.HeroWindow:hover .Swatch:nth-child(odd) {
+  transform: translateY(-6px);
+}
+
+.HeroWindow:hover .Swatch:nth-child(even) {
+  transform: translateY(6px);
+}
+
+.PromptCard {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.85rem 1rem 0.95rem;
+  border: 2px solid var(--ColorEdge);
+  border-radius: 18px;
+  background: var(--ColorSurface);
+  box-shadow: 6px 6px 0 var(--Pink);
+}
+
+.PromptLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--FontMono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ColorAccent);
+}
+
+.PromptText {
+  font-size: clamp(0.8rem, 0.6rem + 0.45vw, 1rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.HeroPrompt {
+  width: 62%;
+  left: 14%;
+  bottom: 0;
+  rotate: -2deg;
+  transition: rotate var(--Medium) var(--EaseBounce);
+}
+
+.HeroPrompt:hover {
+  rotate: 0deg;
+}
+
+.HeroStarOne {
+  width: 10%;
+  right: 6%;
+  top: 30%;
+  fill: var(--Lime);
+  stroke: var(--Midnight);
+  stroke-width: 0.6;
+  animation: Twinkle 6s var(--Ease) infinite;
+}
+
+.HeroStarTwo {
+  width: 6%;
+  left: 4%;
+  top: 8%;
+  fill: var(--ColorSecondary);
+  animation: Twinkle 6s var(--Ease) -3s infinite;
+}
+
+.ScrollCue {
+  position: absolute;
+  left: var(--Gutter);
+  bottom: calc(var(--TickerBand) + 1.6rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--SizeMicro);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ColorMuted);
+}
+
+.ScrollCueDot {
+  position: relative;
+  width: 22px;
+  height: 34px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+
+.ScrollCueDot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 4px;
+  height: 7px;
+  margin-left: -2px;
+  border-radius: 4px;
+  background: var(--ColorAccent);
+  animation: ScrollDot 2s var(--Ease) infinite;
+}
+
+@keyframes ScrollDot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 961px) and (max-height: 900px) {
+  .ScrollCue {
+    display: none;
+  }
+}
+
+@media (min-width: 1490px) {
+  .ScrollCue {
+    left: calc((100vw - var(--ContainerMax)) / 2 + var(--Gutter));
+  }
+}
+
+.Ticker {
+  position: absolute;
+  left: -2%;
+  z-index: 3;
+  width: 104%;
+  padding-block: clamp(0.7rem, 1.1vw, 1rem);
+  overflow: hidden;
+  line-height: 1.2;
+  background: var(--ColorInk);
+  color: var(--ColorOnInk);
+}
+
+.TickerHero {
+  bottom: 1.1rem;
+  rotate: -1.5deg;
+}
+
+.TickerTrack {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.TickerTrack.IsRunning {
+  animation: Marquee var(--TickerDuration, 40s) linear infinite;
+}
+
+.TickerGroup {
+  display: flex;
+  flex: none;
+  align-items: center;
+}
+
+.TickerWord {
+  padding-inline: clamp(1rem, 2vw, 1.75rem);
+  font-size: clamp(1.15rem, 0.9rem + 1.2vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.TickerWord.IsSerif {
+  font-family: var(--FontSerif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--Lavender);
+}
+
+:root .TickerWord.IsSerif {
+  color: var(--VioletDeep);
+}
+
+.TickerStar {
+  flex: none;
+  width: clamp(16px, 1.6vw, 22px);
+  height: clamp(16px, 1.6vw, 22px);
+  fill: var(--ColorSecondary);
+}
+
+.TickerStar.IsLime {
+  fill: var(--Lime);
+}
+
+:root .TickerStar.IsLime {
+  fill: var(--Violet);
+}
+
+.AboutGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+}
+
+.AboutAside {
+  grid-column: 1 / 5;
+  position: relative;
+}
+
+.AboutYears {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: clamp(0.5rem, 2.5vh, 2rem);
+}
+
+.AboutYearsNumber {
+  font-size: clamp(3.6rem, min(2rem + 6vw, 15vh), 8.5rem);
+  font-family: var(--FontSerif);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--ColorAccent);
+}
+
+.AboutYearsText {
+  max-width: 16ch;
+  font-size: var(--SizeLead);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.AboutStickers {
+  position: relative;
+  height: clamp(120px, 21vh, 200px);
+  margin-top: clamp(1rem, 3vh, 2.5rem);
+}
+
+.AboutStickers .Sticker {
+  position: absolute;
+  left: 0;
+  top: 22px;
+  rotate: -7deg;
+  z-index: 1;
+}
+
+.CodeTag {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 2px solid var(--Midnight);
+  border-radius: 24%;
+  background: var(--Violet);
+  color: var(--White);
+  box-shadow: 6px 6px 0 var(--Midnight);
+  font-family: var(--FontMono);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+:root .CodeTag {
+  border-color: var(--ColorEdge);
+  box-shadow: 6px 6px 0 var(--Pink);
+}
+
+.AboutTag {
+  width: clamp(80px, 13vh, 116px);
+  left: 46%;
+  top: 30px;
+  rotate: 8deg;
+  font-size: clamp(1.6rem, 4.4vh, 2.4rem);
+  animation: Float 8s var(--Ease) infinite alternate;
+}
+
+.AboutStar {
+  width: 38px;
+  left: 30%;
+  top: 62%;
+  fill: var(--ColorSecondary);
+  animation: Twinkle 7s var(--Ease) infinite;
+}
+
+.AboutMain {
+  grid-column: 6 / 13;
+}
+
+.AboutMain .SectionTitle {
+  margin-bottom: clamp(1rem, 3.5vh, 2.5rem);
+  max-width: 15ch;
+}
+
+.AboutText {
+  max-width: 46ch;
+  font-size: clamp(1rem, min(0.95rem + 0.45vw, 2.6vh), 1.3rem);
+  line-height: 1.7;
+}
+
+.AboutValues {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(1.1rem, 3.5vh, 2.5rem);
+}
+
+.AboutValue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.15rem;
+  border: 1.5px solid var(--ColorLineStrong);
+  border-radius: 999px;
+  font-size: var(--SizeSmall);
+  font-weight: 700;
+  transition:
+    transform var(--Medium) var(--EaseBounce),
+    border-color var(--Fast) var(--Ease),
+    background-color var(--Fast) var(--Ease);
+}
+
+.AboutValue i {
+  color: var(--ColorAccent);
+}
+
+.AboutValue:hover {
+  transform: translateY(-4px) rotate(-2deg);
+  border-color: var(--ColorAccent);
+  background: var(--ColorDetail);
+}
+
+.ToolkitLayout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+}
+
+.ToolkitHead {
+  grid-column: 1 / 6;
+}
+
+.ToolkitHead .SectionTitle {
+  max-width: 13ch;
+  margin-bottom: clamp(1rem, 3vh, 1.5rem);
+}
+
+.ToolkitNote {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: clamp(1rem, 3.5vh, 2rem);
+  font-family: var(--FontSerif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
+  line-height: 1.25;
+  color: var(--ColorMuted);
+}
+
+.ToolkitNote .InlineSparkle {
+  width: 18px;
+  height: 18px;
+  fill: var(--Lime);
+  stroke: var(--Midnight);
+  stroke-width: 1.2;
+}
+
+.Workspace {
+  grid-column: 6 / 13;
+  display: grid;
+  grid-template-columns: minmax(170px, 0.8fr) minmax(0, 1.6fr);
+  gap: clamp(0.75rem, 1.4vw, 1.25rem);
+  align-items: stretch;
+}
+
+.ToolTabs {
+  display: grid;
+  gap: 0.5rem;
+  align-content: center;
+}
+
+.ToolTab {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: clamp(0.45rem, 1.2vh, 0.65rem) 0.9rem clamp(0.45rem, 1.2vh, 0.65rem) 0.5rem;
+  border: 2px solid var(--ColorLine);
+  border-radius: 999px;
+  text-align: left;
+  transition:
+    border-color var(--Fast) var(--Ease),
+    background-color var(--Fast) var(--Ease),
+    box-shadow var(--Medium) var(--EaseBounce);
+}
+
+.ToolTab:hover {
+  border-color: var(--ToolColor);
+}
+
+.ToolTab[aria-selected="true"] {
+  border-color: var(--ColorEdge);
+  background: var(--ColorSurface);
+  box-shadow: 4px 4px 0 var(--ToolColor);
+}
+
+.ToolTabMark {
+  width: clamp(36px, 5.6vh, 44px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 28%;
+  background: var(--ToolInk);
+  color: var(--ToolColor);
+  box-shadow: inset 0 0 0 2px var(--ToolColor);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.ToolTabName {
+  font-size: clamp(0.95rem, 0.85rem + 0.3vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.ToolTabExt {
+  font-family: var(--FontMono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ColorMuted);
+}
+
+.ToolPanels {
+  display: grid;
+}
+
+.ToolPanel {
+  position: relative;
+  grid-area: 1 / 1;
+  display: grid;
+  align-content: space-between;
+  gap: clamp(1.5rem, 5vh, 3rem);
+  min-height: clamp(300px, 52vh, 460px);
+  padding: clamp(1.25rem, 3.5vh, 2.25rem) clamp(1.25rem, 2.4vw, 2.25rem);
+  border: 2px solid var(--Midnight);
+  border-radius: var(--RadiusLarge);
+  background: var(--ToolInk);
+  color: #ffffff;
+  box-shadow: 8px 8px 0 var(--ToolColor);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+:root .ToolPanel {
+  border-color: var(--ColorEdge);
+}
+
+.ToolPanelExt {
+  position: absolute;
+  right: -0.05em;
+  bottom: -0.2em;
+  z-index: -1;
+  font-family: var(--FontMono);
+  font-size: clamp(5rem, min(11vw, 22vh), 11rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--ToolColor);
+  opacity: 0.16;
+}
+
+.ToolPanelMark {
+  width: clamp(72px, 13vh, 110px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 28%;
+  background: rgb(255 255 255 / 0.06);
+  color: var(--ToolColor);
+  box-shadow: inset 0 0 0 3px var(--ToolColor);
+  font-size: clamp(1.8rem, 4.6vh, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.ToolPanelBrand {
+  font-family: var(--FontSerif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.45rem);
+  color: var(--ToolColor);
+}
+
+.ToolPanelName {
+  margin-bottom: clamp(0.6rem, 2vh, 1rem);
+  font-size: clamp(2.2rem, min(1.4rem + 2.6vw, 8vh), 4.2rem);
+  letter-spacing: -0.05em;
+}
+
+.ToolPanelText {
+  max-width: 30ch;
+  font-size: clamp(0.98rem, 0.9rem + 0.3vw, 1.15rem);
+  line-height: 1.55;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.UniverseLayout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+}
+
+.UniverseHead {
+  grid-column: 1 / 5;
+  margin-bottom: 0;
+}
+
+.UniverseHead .SectionTitle {
+  max-width: 9ch;
+  margin-bottom: clamp(0.75rem, 2.5vh, 1.25rem);
+}
+
+.UniverseCanvas {
+  grid-column: 5 / 13;
+  position: relative;
+}
+
+.UniverseOrbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 110%;
+  aspect-ratio: 1.6;
+  translate: -50% -50%;
+  pointer-events: none;
+}
+
+.OrbitRing {
+  position: absolute;
+  inset: 0;
+  border: 1.5px dashed var(--ColorLineStrong);
+  border-radius: 50%;
+}
+
+.OrbitRingInner {
+  inset: 22% 18%;
+  border-style: solid;
+  border-color: var(--ColorLine);
+}
+
+.OrbitSpin {
+  position: absolute;
+  inset: 0;
+  animation: Spin 60s linear infinite;
+}
+
+.OrbitSatellite {
+  position: absolute;
+  left: 50%;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--Lime);
+  border: 2px solid var(--Midnight);
+}
+
+.UniverseList {
+  --PlanetHeight: clamp(112px, 22vh, 240px);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 4vh, 2.5rem) clamp(1rem, 2vw, 1.75rem);
+  align-items: start;
+}
+
+.Planet {
+  --Tilt: 0deg;
+  position: relative;
+  display: grid;
+  gap: clamp(0.6rem, 1.8vh, 1rem);
+  rotate: var(--Tilt);
+}
+
+.Planet,
+.Js .Planet[data-reveal] {
+  transition:
+    opacity var(--Slow) var(--EaseOut),
+    transform var(--Slow) var(--EaseOut),
+    rotate var(--Medium) var(--EaseBounce);
+  transition-delay: var(--RevealDelay, 0ms), var(--RevealDelay, 0ms), 0ms;
+}
+
+.Planet:nth-child(3n + 2) {
+  margin-top: clamp(0.5rem, 3vh, 1.75rem);
+}
+
+.Planet:hover {
+  rotate: 0deg;
+}
+
+.PlanetArt {
+  position: relative;
+  height: var(--PlanetHeight);
+  border: 2px solid var(--ColorEdge);
+  border-radius: var(--Radius);
+  background: var(--ColorSurface);
+  box-shadow: var(--ShadowCard);
+  overflow: hidden;
+  transition:
+    transform var(--Medium) var(--EaseBounce),
+    box-shadow var(--Medium) var(--EaseBounce);
+}
+
+.Planet:hover .PlanetArt {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 var(--ColorAccent);
+}
+
+.PlanetInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.PlanetNumber {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2.2rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--ColorText);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.PlanetTitle {
+  font-size: clamp(1.2rem, 1rem + 0.6vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.PlanetIdentity {
+  --Tilt: -3deg;
+}
+
+.PlanetIdentity .PlanetArt {
+  aspect-ratio: 1;
+  max-width: 100%;
+  justify-self: center;
+  border-radius: 50%;
+  background: var(--Violet);
+  display: grid;
+  place-items: center;
+}
+
+.IdentityBurst {
+  position: absolute;
+  width: 74%;
+  aspect-ratio: 1;
+  fill: var(--Pink);
+  transition: transform 1.2s var(--EaseOut);
+}
+
+.Planet:hover .IdentityBurst {
+  transform: rotate(60deg) scale(1.05);
+}
+
+.IdentityMark {
+  position: relative;
+  font-size: clamp(2.2rem, 1.6rem + 2vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  color: var(--Midnight);
+}
+
+.IdentityMark span {
+  color: var(--White);
+}
+
+.PlanetComposition {
+  --Tilt: 2deg;
+}
+
+.ComposeGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, transparent calc(33.33% - 1px), var(--ColorLine) calc(33.33% - 1px) 33.33%, transparent 33.33% calc(66.66% - 1px), var(--ColorLine) calc(66.66% - 1px) 66.66%, transparent 66.66%),
+    linear-gradient(transparent calc(33.33% - 1px), var(--ColorLine) calc(33.33% - 1px) 33.33%, transparent 33.33% calc(66.66% - 1px), var(--ColorLine) calc(66.66% - 1px) 66.66%, transparent 66.66%);
+}
+
+.ComposeCircle,
+.ComposeSquare,
+.ComposeLine {
+  position: absolute;
+  transition:
+    left var(--Slow) var(--EaseBounce),
+    top var(--Slow) var(--EaseBounce),
+    transform var(--Slow) var(--EaseBounce);
+}
+
+.ComposeCircle {
+  width: 30%;
+  aspect-ratio: 1;
+  left: 52%;
+  top: 14%;
+  border-radius: 50%;
+  background: var(--Violet);
+}
+
+.ComposeSquare {
+  width: 22%;
+  aspect-ratio: 1;
+  left: 16%;
+  top: 52%;
+  background: var(--Pink);
+  border: 2px solid var(--Midnight);
+}
+
+.ComposeLine {
+  width: 60%;
+  height: 3px;
+  left: 18%;
+  top: 46%;
+  border-radius: 3px;
+  background: var(--ColorText);
+  transform: rotate(-18deg);
+}
+
+.Planet:hover .ComposeCircle {
+  left: calc(66.66% - 15%);
+  top: calc(33.33% - 20%);
+}
+
+.Planet:hover .ComposeSquare {
+  left: calc(33.33% - 11%);
+  top: calc(66.66% - 14.6%);
+}
+
+.Planet:hover .ComposeLine {
+  transform: rotate(0);
+  top: 50%;
+}
+
+.PlanetColor {
+  --Tilt: -2deg;
+}
+
+.PlanetColor .PlanetArt {
+  border-radius: 999px 999px var(--Radius) var(--Radius);
+  background: var(--Lilac);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(0.5rem, 2vh, 1.1rem);
+  padding: 10% 8% 6%;
+}
+
+:root .PlanetColor .PlanetArt {
+  background: var(--ColorDetail);
+}
+
+.Specimen {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  line-height: 1;
+}
+
+.SpecimenSerif {
+  font-family: var(--FontSerif);
+  font-style: italic;
+  font-size: clamp(2.4rem, min(1.8rem + 2.4vw, 8vh), 5rem);
+  color: var(--ColorAccent);
+}
+
+:root .SpecimenSerif {
+  color: var(--Pink);
+}
+
+.SpecimenSans {
+  font-size: clamp(2rem, min(1.5rem + 2vw, 6.8vh), 4.2rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.ChipRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.Chip {
+  width: clamp(22px, min(2.4vw, 4.2vh), 36px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid var(--Midnight);
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.Planet:hover .Chip:nth-child(1) {
+  transform: translateY(-8px);
+}
+
+.Planet:hover .Chip:nth-child(2) {
+  transform: translateY(-14px);
+  transition-delay: 40ms;
+}
+
+.Planet:hover .Chip:nth-child(3) {
+  transform: translateY(-8px);
+  transition-delay: 80ms;
+}
+
+.Planet:hover .Chip:nth-child(4) {
+  transform: translateY(-14px);
+  transition-delay: 120ms;
+}
+
+.ChipViolet {
+  background: var(--Violet);
+}
+
+.ChipPink {
+  background: var(--Pink);
+}
+
+.ChipLilac {
+  background: var(--Lavender);
+}
+
+.ChipLime {
+  background: var(--Lime);
+}
+
+.PlanetIllustration {
+  --Tilt: 2deg;
+}
+
+.PlanetIllustration .PlanetArt,
+.PlanetDigital .PlanetArt {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.Planet.PlanetIllustration:hover .PlanetArt,
+.Planet.PlanetDigital:hover .PlanetArt {
+  transform: none;
+  box-shadow: none;
+}
+
+.PenArt {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.PenShape {
+  fill: url(#PenGradient);
+  stroke: var(--ColorEdge);
+  stroke-width: 2;
+  transition: transform var(--Slow) var(--EaseBounce);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.PenGuides line {
+  stroke: var(--ColorAccent);
+  stroke-width: 1.5;
+}
+
+.PenGuides circle {
+  fill: var(--ColorAccent);
+}
+
+.PenGuides rect {
+  fill: var(--ColorBackground);
+  stroke: var(--ColorAccent);
+  stroke-width: 2;
+}
+
+.PenGuides {
+  transition: opacity var(--Medium) var(--Ease);
+}
+
+.Planet:hover .PenShape {
+  transform: rotate(-6deg) scale(1.04);
+}
+
+.Planet:hover .PenGuides {
+  opacity: 0.4;
+}
+
+.PenNib {
+  position: absolute;
+  right: 4%;
+  bottom: 6%;
+  font-size: 1.6rem;
+  color: var(--ColorText);
+  rotate: -90deg;
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.Planet:hover .PenNib {
+  transform: translate(-10px, -14px);
+}
+
+.PlanetPhoto {
+  --Tilt: -2deg;
+}
+
+.PlanetPhoto .PlanetArt {
+  display: flex;
+  flex-direction: column;
+}
+
+.PhotoFrame {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--Lavender), var(--Pink));
+  border-bottom: 2px solid var(--ColorEdge);
+  transition: filter var(--Slow) var(--Ease);
+}
+
+.Planet:hover .PhotoFrame {
+  filter: saturate(1.4) contrast(1.08);
+}
+
+.PhotoSun {
+  position: absolute;
+  width: 24%;
+  aspect-ratio: 1;
+  right: 18%;
+  top: 14%;
+  border-radius: 50%;
+  background: var(--Lime);
+  transition: transform var(--Slow) var(--EaseOut);
+}
+
+.Planet:hover .PhotoSun {
+  transform: translateY(14%);
+}
+
+.PhotoHill {
+  position: absolute;
+  left: -10%;
+  right: 30%;
+  bottom: -40%;
+  height: 80%;
+  border-radius: 50%;
+  background: var(--VioletDeep);
+}
+
+.PhotoHillBack {
+  left: 34%;
+  right: -20%;
+  bottom: -46%;
+  background: var(--Violet);
+}
+
+.Adjust {
+  display: grid;
+  gap: clamp(0.25rem, 1vh, 0.55rem);
+  padding: clamp(0.5rem, 1.4vh, 0.9rem) 0.9rem;
+}
+
+.AdjustRow {
+  display: grid;
+  grid-template-columns: 5.4rem 1fr;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ColorMuted);
+}
+
+.AdjustTrack {
+  position: relative;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--ColorDetail);
+}
+
+.AdjustTrack::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--Knob);
+  border-radius: inherit;
+  background: var(--ColorAccent);
+  transition: width var(--Slow) var(--EaseBounce);
+}
+
+.AdjustTrack::after {
+  content: "";
+  position: absolute;
+  left: var(--Knob);
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: var(--ColorSurface);
+  border: 2px solid var(--ColorEdge);
+  transition: left var(--Slow) var(--EaseBounce);
+}
+
+.Planet:hover .AdjustRow:nth-child(1) .AdjustTrack {
+  --Knob: 80% !important;
+}
+
+.Planet:hover .AdjustRow:nth-child(2) .AdjustTrack {
+  --Knob: 56% !important;
+}
+
+.Planet:hover .AdjustRow:nth-child(3) .AdjustTrack {
+  --Knob: 90% !important;
+}
+
+.PlanetDigital {
+  --Tilt: 3deg;
+}
+
+.PlanetDigital .PlanetArt {
+  display: grid;
+  place-items: center;
+}
+
+.PhoneMock {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 0.56;
+  display: grid;
+  align-content: start;
+  gap: 7%;
+  padding: 22% 9% 9%;
+  border: 2px solid var(--Midnight);
+  border-radius: clamp(16px, 3vh, 26px);
+  background: var(--White);
+  box-shadow: 8px 8px 0 var(--Violet);
+  grid-auto-rows: max-content;
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.Planet:hover .PhoneMock {
+  transform: translateY(-6px) rotate(-3deg);
+}
+
+.PhoneNotch {
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  width: 28%;
+  height: 5px;
+  margin-left: -14%;
+  border-radius: 6px;
+  background: var(--Midnight);
+}
+
+.PhoneHero {
+  aspect-ratio: 1.2;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 70% 35%, var(--Lime) 0 16%, transparent 17%),
+    linear-gradient(140deg, var(--Lavender), var(--Violet));
+}
+
+.PhoneText {
+  height: 8px;
+  border-radius: 8px;
+  background: var(--Lilac);
+}
+
+.PhoneTextShort {
+  width: 60%;
+}
+
+.PhoneButton {
+  width: 70%;
+  height: clamp(12px, 2.2vh, 20px);
+  border-radius: 999px;
+  background: var(--Pink);
+  border: 2px solid var(--Midnight);
+}
+
+.DigitalCursor {
+  position: absolute;
+  right: 18%;
+  bottom: 16%;
+  font-size: 1.8rem;
+  color: var(--ColorText);
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.Planet:hover .DigitalCursor {
+  transform: translate(-30px, -10px);
+}
+
+.EducationHead .SectionTitle {
+  max-width: 13ch;
+}
+
+.Path {
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr 1fr 0.8fr;
+  gap: 1.5rem;
+}
+
+.PathStop {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+  padding-top: 3.25rem;
+}
+
+.PathStop::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: -1.5rem;
+  top: 15px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--ColorText);
+}
+
+.PathStopNow::before {
+  background: repeating-linear-gradient(90deg, var(--ColorText) 0 10px, transparent 10px 18px);
+}
+
+.PathStopNext::before {
+  display: none;
+}
+
+.PathNode {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  border: 3px solid var(--ColorText);
+  background: var(--ColorBackground);
+  z-index: 1;
+}
+
+.PathNodeNow {
+  background: var(--Lime);
+  border-color: var(--Midnight);
+}
+
+.PathNodeNow::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid var(--ColorAccent);
+  animation: Pulse 2.4s var(--Ease) infinite;
+}
+
+.PathNodeNext {
+  display: grid;
+  place-items: center;
+  background: var(--ColorAccent);
+  border-color: var(--ColorAccent);
+  color: var(--ColorOnAccent);
+  font-size: 0.8rem;
+}
+
+.PathLabel {
+  font-size: var(--SizeMicro);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ColorMuted);
+}
+
+.PathValue {
+  font-size: clamp(1.4rem, 1rem + 1.2vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.PathValueBig {
+  font-size: clamp(2.6rem, 1.5rem + 3.4vw, 4.6rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--ColorAccent);
+}
+
+.StatusPill {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border: 2px solid var(--Midnight);
+  border-radius: 999px;
+  background: var(--Pink);
+  color: var(--Midnight);
+  box-shadow: 4px 4px 0 var(--Midnight);
+  rotate: -3deg;
+}
+
+.PathNextText {
+  font-family: var(--FontSerif);
+  font-style: italic;
+  font-size: clamp(1.4rem, 1rem + 1vw, 2rem);
+  color: var(--ColorMuted);
+  line-height: 1.1;
+}
+
+.Contact {
+  overflow: hidden;
+}
+
+.ContactGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+}
+
+.ContactCopy {
+  grid-column: 1 / 8;
+}
+
+.ContactTitle {
+  font-size: var(--SizeContact);
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  margin-bottom: clamp(1.1rem, 3.5vh, 2.5rem);
+}
+
+.ContactTitle em {
+  display: block;
+  padding-left: 0.8em;
+}
+
+.ContactText {
+  max-width: 36ch;
+  font-size: var(--SizeLead);
+  color: var(--ColorMuted);
+}
+
+.ContactPanel {
+  grid-column: 8 / 13;
+  position: relative;
+  display: grid;
+  gap: clamp(0.9rem, 2.6vh, 1.5rem);
+  padding: clamp(1.25rem, min(3vw, 4.5vh), 2.5rem);
+  border: 2px solid var(--ColorEdge);
+  border-radius: var(--RadiusLarge);
+  background: var(--ColorSurface);
+  box-shadow: 8px 8px 0 var(--ColorAccent);
+}
+
+.ContactArt {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ContactTag {
+  width: 92px;
+  right: -26px;
+  top: -40px;
+  rotate: 10deg;
+  background: var(--Pink);
+  color: var(--Midnight);
+  font-size: 2.4rem;
+  animation: Float 8s var(--Ease) infinite alternate;
+}
+
+.ContactStar {
+  width: 34px;
+  left: -16px;
+  bottom: 38%;
+  fill: var(--Lime);
+  stroke: var(--Midnight);
+  stroke-width: 1;
+  animation: Twinkle 6s var(--Ease) infinite;
+}
+
+.Channel {
+  display: grid;
+  gap: 0.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1.5px dashed var(--ColorLineStrong);
+}
+
+.ChannelLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: var(--SizeMicro);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ColorMuted);
+}
+
+.ChannelLabel i {
+  color: var(--ColorAccent);
+}
+
+.ChannelRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ChannelValue {
+  min-width: 0;
+  font-size: clamp(1.15rem, 0.95rem + 0.8vw, 1.55rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  overflow-wrap: break-word;
+  background: linear-gradient(var(--ColorSecondary), var(--ColorSecondary)) 0 92% / 0 0.35em no-repeat;
+  transition: background-size var(--Medium) var(--EaseOut);
+}
+
+.ChannelValue:hover {
+  background-size: 100% 0.35em;
+}
+
+.CopyButton {
+  position: relative;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--ColorLineStrong);
+  border-radius: 50%;
+  font-size: 0.85rem;
+  transition:
+    transform var(--Medium) var(--EaseBounce),
+    background-color var(--Fast) var(--Ease),
+    border-color var(--Fast) var(--Ease);
+}
+
+.CopyButton:hover {
+  transform: scale(1.08) rotate(-8deg);
+  border-color: var(--ColorAccent);
+  background: var(--ColorDetail);
+}
+
+.CopyFeedback {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: var(--ColorInk);
+  color: var(--ColorOnInk);
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, 6px);
+  pointer-events: none;
+  transition:
+    opacity var(--Fast) var(--Ease),
+    transform var(--Medium) var(--EaseBounce);
+}
+
+.CopyButton.IsCopied .CopyFeedback {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.Channel:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.ChannelArrow {
+  margin-left: 0.5rem;
+  font-size: 0.7em;
+  color: var(--ColorAccent);
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.ChannelLink:hover .ChannelArrow {
+  transform: translate(3px, -3px);
+}
+
+.Contact {
+  padding-bottom: 1.25rem;
+}
+
+.Contact > .ContactGrid {
+  margin-block: auto;
+}
+
+.Footer {
+  position: relative;
+  padding-top: clamp(1.5rem, 4vh, 3rem);
+}
+
+.FooterWordmark {
+  margin: 0 0 clamp(0.75rem, 2vh, 1.25rem);
+  font-size: clamp(3rem, min(1rem + 15vw, 16vh), 15rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.07em;
+  color: var(--Violet);
+  user-select: none;
+  white-space: nowrap;
+}
+
+:root .FooterWordmark {
+  color: var(--Pink);
+}
+
+.FooterWordmark span {
+  color: var(--Lime);
+}
+
+.FooterBottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1.5px solid var(--ColorLine);
+  font-size: var(--SizeMicro);
+  font-weight: 600;
+  color: var(--ColorMuted);
+}
+
+.FooterMade {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.BackToTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: color var(--Fast) var(--Ease);
+}
+
+.BackToTop:hover {
+  color: var(--ColorText);
+}
+
+.BackToTop i {
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.BackToTop:hover i {
+  transform: translateY(-3px);
+}
+
+:root .Hero::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto auto;
+  width: 70vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(121 84 246 / 0.28), transparent 62%);
+  pointer-events: none;
+}
+
+.TickerHero {
+  background: linear-gradient(90deg, var(--VioletDeep), var(--Violet) 55%, var(--HotPink));
+  color: var(--White);
+}
+
+.TickerHero .TickerWord.IsSerif,
+:root .TickerHero .TickerWord.IsSerif {
+  color: var(--Lilac);
+}
+
+.TickerHero .TickerStar,
+.TickerHero .TickerStar.IsLime,
+:root .TickerHero .TickerStar.IsLime {
+  fill: var(--Lime);
+}
+
+.CodeGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+}
+
+.CodeCopy {
+  grid-column: 1 / 6;
+}
+
+.CodeCopy .SectionTitle {
+  max-width: 10ch;
+  margin-bottom: clamp(1rem, 3vh, 1.75rem);
+}
+
+.CodeHonest {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: clamp(1.25rem, 4vh, 2.25rem);
+  padding: 0.6rem 1rem;
+  border: 1.5px dashed var(--ColorLineStrong);
+  border-radius: 999px;
+  font-family: var(--FontMono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ColorMuted);
+}
+
+.CodeHonest i {
+  color: var(--Lime);
+}
+
+.Terminal {
+  grid-column: 7 / 13;
+  position: relative;
+  rotate: 1.5deg;
+}
+
+.Stack {
+  display: grid;
+  padding: clamp(0.5rem, 1.6vh, 1rem) clamp(0.9rem, 1.6vw, 1.4rem) 0;
+}
+
+.StackItem {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: clamp(0.6rem, 1.8vh, 1rem) 0;
+  border-bottom: 1px dashed rgb(185 165 255 / 0.18);
+}
+
+.StackIcon {
+  width: clamp(40px, 6vh, 50px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--StackColor) 16%, transparent);
+  box-shadow: inset 0 0 0 1.5px var(--StackColor);
+  color: var(--StackColor);
+  font-size: clamp(1.1rem, 2.6vh, 1.4rem);
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.StackItem:hover .StackIcon {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.StackName {
+  margin-bottom: 0.2rem;
+  font-size: clamp(1.05rem, 0.9rem + 0.5vw, 1.35rem);
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.StackText {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #b8aedb;
+}
+
+.TerminalPrompt {
+  padding: clamp(0.75rem, 2vh, 1.1rem) clamp(0.9rem, 1.6vw, 1.4rem);
+  font-family: var(--FontMono);
+  font-size: 0.82rem;
+  color: #cfc4ff;
+}
+
+.TerminalSign {
+  color: var(--Lime);
+  font-weight: 700;
+}
+
+@media (min-width: 961px) and (max-height: 760px) {
+  :root {
+    --ViewSpace: clamp(0.75rem, 3vh, 1.5rem);
+    --TickerBand: 3.2rem;
+  }
+
+  .TickerWord {
+    font-size: 1.15rem;
+  }
+
+  .HeroLead {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .Button {
+    padding-block: 0.7rem;
+  }
+
+  .ContactTitle {
+    font-size: clamp(2.6rem, 12vh, 6rem);
+  }
+}

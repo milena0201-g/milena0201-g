@@ -1,0 +1,74 @@
+:root {
+  --Violet: #7954f6;
+  --VioletDeep: #5934c9;
+  --Lavender: #b9a5ff;
+  --Lilac: #e8deff;
+  --Pink: #f28acb;
+  --HotPink: #e95baa;
+  --Midnight: #211a3a;
+  --OffWhite: #faf8ff;
+  --White: #ffffff;
+  --Lime: #d6f36a;
+
+  --ColorBackground: #0b0915;
+  --ColorSurface: #141027;
+  --ColorText: #f4f0ff;
+  --ColorMuted: #a99fca;
+  --ColorAccent: #a283ff;
+  --ColorAccentStrong: #c8b8ff;
+  --ColorSecondary: #ff8fd0;
+  --ColorDetail: #231b40;
+  --ColorOnAccent: #0b0915;
+  --ColorInk: #7954f6;
+  --ColorOnInk: #ffffff;
+
+  --ColorLine: color-mix(in srgb, var(--Lavender) 13%, transparent);
+  --ColorLineStrong: color-mix(in srgb, var(--Lavender) 28%, transparent);
+  --ColorHighlight: color-mix(in srgb, var(--Violet) 50%, transparent);
+  --ShadowSoft: 0 24px 60px -24px rgb(0 0 0 / 0.7);
+  --ShadowPop: 6px 6px 0 var(--Violet);
+  --ColorEdge: #3d2f72;
+  --ShadowCard: 6px 6px 0 var(--Violet);
+  --CodeBackground: #120e22;
+  --GrainOpacity: 0.06;
+
+  --SphereVioletLight: #d4c7ff;
+  --SphereVioletBase: #8f70ff;
+  --SphereVioletDeep: #3a1f96;
+  --SpherePinkLight: #ffd3ec;
+  --SpherePinkBase: #f28acb;
+  --SpherePinkDeep: #c43c88;
+  --SphereLilacLight: #f1ebff;
+  --SphereLilacBase: #8c7bc4;
+  --SphereLilacDeep: #3c3159;
+
+  --FontSans: "Plus Jakarta Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --FontSerif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --FontMono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --SizeMicro: 0.74rem;
+  --SizeSmall: 0.88rem;
+  --SizeBody: 1rem;
+  --SizeLead: clamp(1.05rem, 0.98rem + 0.35vw, 1.24rem);
+  --SizeHero: clamp(2.9rem, min(1.2rem + 7.6vw, 8.8vh), 9.4rem);
+  --SizeSection: clamp(2.3rem, min(1.4rem + 4.4vw, 8.6vh), 5.6rem);
+  --SizeContact: clamp(3rem, min(1rem + 8vw, 14vh), 9.6rem);
+
+  --Gutter: clamp(20px, 4.5vw, 64px);
+  --ContainerMax: 1360px;
+  --ViewSpace: clamp(1.25rem, 5vh, 3.5rem);
+  --TickerBand: clamp(3.4rem, 2.6rem + 2.2vw, 4.9rem);
+  --NavHeight: 78px;
+  --RadiusSmall: 12px;
+  --Radius: 22px;
+  --RadiusLarge: 36px;
+
+  --Ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --EaseOut: cubic-bezier(0.16, 1, 0.3, 1);
+  --EaseBounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --Fast: 220ms;
+  --Medium: 480ms;
+  --Slow: 900ms;
+
+  color-scheme: dark;
+}

@@ -1,0 +1,467 @@
+@media (min-width: 1600px) {
+  :root {
+    --ContainerMax: 1480px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .NavLink {
+    padding: 0.5rem 0.7rem;
+  }
+
+}
+
+@media (max-width: 960px) {
+  :root {
+    --NavHeight: 70px;
+  }
+
+  .MenuToggle {
+    display: block;
+  }
+
+  .NavMenu {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: calc(var(--NavHeight) + 2rem) var(--Gutter) 2rem;
+    background: var(--ColorBackground);
+    visibility: hidden;
+    clip-path: circle(0 at calc(100% - 40px) 35px);
+    transition:
+      clip-path 700ms var(--EaseOut),
+      visibility 0s linear 700ms;
+  }
+
+  .NavMenu.IsOpen {
+    visibility: visible;
+    clip-path: circle(150% at calc(100% - 40px) 35px);
+    transition:
+      clip-path 700ms var(--EaseOut),
+      visibility 0s;
+  }
+
+  .NavList {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .NavLink {
+    width: 100%;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-radius: 0;
+    font-size: clamp(2.1rem, 1.3rem + 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    color: var(--ColorText);
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity var(--Medium) var(--EaseOut),
+      transform var(--Medium) var(--EaseOut),
+      color var(--Fast) var(--Ease);
+  }
+
+  .NavLink:hover {
+    background: none;
+    color: var(--ColorAccent);
+  }
+
+  .NavLink.IsActive {
+    background: none;
+    color: var(--ColorAccent);
+  }
+
+  .NavIndicator {
+    display: none;
+  }
+
+  .NavList.HasIndicator:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .NavList.HasIndicator .NavLink.IsActive {
+    color: var(--ColorAccent);
+  }
+
+  .NavLink.IsActive span:last-child {
+    font-family: var(--FontSerif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .NavMenu.IsOpen .NavLink {
+    opacity: 1;
+    transform: none;
+  }
+
+  .NavMenu.IsOpen li:nth-child(2) .NavLink { transition-delay: 50ms; }
+  .NavMenu.IsOpen li:nth-child(3) .NavLink { transition-delay: 100ms; }
+  .NavMenu.IsOpen li:nth-child(4) .NavLink { transition-delay: 150ms; }
+  .NavMenu.IsOpen li:nth-child(5) .NavLink { transition-delay: 200ms; }
+  .NavMenu.IsOpen li:nth-child(6) .NavLink { transition-delay: 250ms; }
+
+  .NavIndex {
+    display: inline;
+    font-size: var(--SizeMicro);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--ColorAccent);
+  }
+
+  .NavMenuFoot {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: var(--SizeMicro);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ColorMuted);
+  }
+
+  .Hero {
+    min-height: auto;
+    padding-top: calc(var(--NavHeight) + 3rem);
+    padding-bottom: calc(var(--TickerBand) + 3.5rem);
+  }
+
+  .HeroGrid {
+    row-gap: 3rem;
+  }
+
+  .HeroCopy {
+    grid-column: 1 / -1;
+  }
+
+  .HeroArt {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: min(100%, 560px);
+    margin: 0 0 0 auto;
+    justify-self: end;
+  }
+
+  .HeroBottom {
+    margin-left: 0;
+  }
+
+  .AboutAside,
+  .AboutMain {
+    grid-column: 1 / -1;
+  }
+
+  .AboutAside {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: end;
+    column-gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .AboutAside .SectionLabel {
+    grid-column: 1 / -1;
+  }
+
+  .AboutYears {
+    margin-top: 0;
+  }
+
+  .AboutStickers {
+    height: 170px;
+    margin-top: 0;
+  }
+
+  .UniverseHead,
+  .UniverseCanvas {
+    grid-column: 1 / -1;
+  }
+
+  .UniverseHead {
+    margin-bottom: 2.5rem;
+  }
+
+  .UniverseHead .SectionTitle {
+    max-width: 12ch;
+  }
+
+  .UniverseList {
+    --PlanetHeight: clamp(140px, 22vw, 220px);
+  }
+
+  .Path {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2.5rem;
+  }
+
+  .PathStop:nth-child(2)::before {
+    right: 0;
+  }
+
+  .ContactCopy,
+  .ContactPanel,
+  .CodeCopy,
+  .Terminal,
+  .ToolkitHead,
+  .Workspace {
+    grid-column: 1 / -1;
+  }
+
+  .CodeCopy,
+  .ToolkitHead {
+    margin-bottom: 2.5rem;
+  }
+
+  .ToolkitHead .SectionTitle {
+    max-width: 14ch;
+  }
+
+  .CodeCopy .SectionTitle {
+    max-width: 14ch;
+  }
+
+  .Terminal {
+    rotate: 0deg;
+  }
+
+  .ContactCopy {
+    margin-bottom: 3.5rem;
+  }
+
+  .ContactPanel {
+    max-width: 560px;
+    justify-self: end;
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .AboutAside {
+    grid-template-columns: 1fr;
+  }
+
+  .AboutStickers {
+    height: 150px;
+    margin-top: 1rem;
+  }
+
+  .AboutStar {
+    top: 96px;
+    left: 18%;
+    width: 28px;
+  }
+
+  .UniverseOrbit {
+    display: none;
+  }
+
+  .Workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .ToolTabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0.25rem 0.5rem 0.75rem 0.1rem;
+    scrollbar-width: none;
+  }
+
+  .ToolTab {
+    flex: none;
+    grid-template-columns: auto auto;
+    padding-right: 1rem;
+  }
+
+  .ToolTabExt {
+    display: none;
+  }
+
+  .ToolPanel {
+    min-height: 320px;
+  }
+
+  .UniverseList {
+    --PlanetHeight: 132px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1rem;
+  }
+
+  .Planet:nth-child(3n + 2) {
+    margin-top: 0;
+  }
+
+  .Planet:nth-child(even) {
+    margin-top: 1.5rem;
+  }
+
+  .PlanetTitle {
+    font-size: 1.05rem;
+  }
+
+  .AdjustRow {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .AdjustRow:nth-child(n + 2) {
+    display: none;
+  }
+
+  .Path {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+
+  .PathStop {
+    padding: 0 0 2.25rem 3.25rem;
+  }
+
+  .PathStop::before,
+  .PathStop:nth-child(2)::before {
+    left: 15px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    height: auto;
+  }
+
+  .PathStopNow::before {
+    background: repeating-linear-gradient(180deg, var(--ColorText) 0 10px, transparent 10px 18px);
+  }
+
+  .PathStopNext {
+    padding-bottom: 0;
+    min-height: 33px;
+    align-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .HeroTitle {
+    font-size: clamp(2.9rem, 0.9rem + 11vw, 4.6rem);
+  }
+
+  .LineShift {
+    padding-left: 0.9em;
+  }
+
+  .LineShiftLarge {
+    padding-left: 0.5em;
+  }
+
+  .HeroActions .Button,
+
+  .HeroArt {
+    width: 100%;
+  }
+
+  .ScrollCue {
+    display: none;
+  }
+
+  .ContactTitle em {
+    padding-left: 0.4em;
+  }
+
+  .ContactTag {
+    width: 72px;
+    right: -12px;
+    top: -36px;
+    font-size: 1.9rem;
+  }
+
+  .FooterBottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 400px) {
+  .NavActions {
+    gap: 0.35rem;
+  }
+
+  .LangOption {
+    min-width: 32px;
+    padding: 0 0.4rem;
+  }
+
+  .MenuToggle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .MenuToggleLine:first-child {
+    top: 14px;
+  }
+
+  .MenuToggleLine:last-child {
+    top: 22px;
+  }
+
+  .MenuToggle[aria-expanded="true"] .MenuToggleLine:first-child,
+  .MenuToggle[aria-expanded="true"] .MenuToggleLine:last-child {
+    top: 18px;
+  }
+
+  .Logo {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .Js [data-reveal],
+  .Js .LineInner {
+    opacity: 1;
+    transform: none;
+  }
+
+  .TickerTrack.IsRunning {
+    animation-duration: var(--TickerDuration, 60s) !important;
+    animation-iteration-count: infinite !important;
+  }
+
+  [data-section].Enter > .Container,
+  .Universe.Enter .Planet,
+  .Code.Enter .StackItem,
+  .Education.Enter .PathStop {
+    animation-duration: 650ms !important;
+  }
+}
+
+@media (pointer: coarse) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  [data-section] {
+    scroll-snap-align: start;
+  }
+}

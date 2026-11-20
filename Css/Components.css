@@ -1,0 +1,1016 @@
+.Navbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: var(--NavHeight);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--Medium) var(--Ease),
+    border-color var(--Medium) var(--Ease);
+}
+
+.Navbar.IsScrolled {
+  background: color-mix(in srgb, var(--ColorBackground) 88%, transparent);
+  border-bottom-color: var(--ColorLine);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  backdrop-filter: saturate(1.4) blur(14px);
+}
+
+.NavbarInner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.Logo {
+  position: relative;
+  z-index: 2;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.16em;
+  transition: letter-spacing var(--Medium) var(--EaseOut);
+}
+
+.Logo:hover {
+  letter-spacing: 0.22em;
+}
+
+.LogoDot {
+  display: inline-block;
+  color: var(--ColorSecondary);
+  letter-spacing: 0;
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.Logo:hover .LogoDot {
+  transform: translateY(-4px) scale(1.3);
+}
+
+.NavList {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  border: 1px solid var(--ColorLine);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ColorSurface) 70%, transparent);
+}
+
+.NavLink {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  font-size: var(--SizeSmall);
+  font-weight: 600;
+  color: var(--ColorMuted);
+  transition:
+    color var(--Fast) var(--Ease),
+    background-color var(--Fast) var(--Ease);
+}
+
+.NavIndex {
+  display: none;
+}
+
+.NavLink:hover {
+  color: var(--ColorText);
+  background: var(--ColorDetail);
+}
+
+.NavLink.IsActive {
+  color: var(--ColorOnAccent);
+  background: var(--ColorAccent);
+}
+
+.NavList.HasIndicator .NavLink,
+.NavList.HasIndicator .NavLink:hover,
+.NavList.HasIndicator .NavLink.IsActive {
+  position: relative;
+  z-index: 1;
+  background: none;
+}
+
+.NavList.HasIndicator .NavLink.IsActive {
+  color: var(--ColorOnAccent);
+}
+
+.NavList.HasIndicator .NavLink:hover:not(.IsActive) {
+  color: var(--ColorText);
+}
+
+.NavIndicator {
+  position: absolute;
+  top: 0.3rem;
+  left: 0;
+  height: calc(100% - 0.6rem);
+  width: var(--IndicatorWidth, 0);
+  border-radius: 999px;
+  transform: translateX(var(--IndicatorX, 0));
+  pointer-events: none;
+  transition:
+    transform 560ms var(--EaseBounce),
+    width 560ms var(--EaseBounce),
+    opacity var(--Fast) var(--Ease),
+    background-color var(--Medium) var(--Ease);
+}
+
+.NavIndicatorHover {
+  background: var(--ColorDetail);
+  opacity: 0;
+}
+
+.NavList.IsHovering .NavIndicatorHover {
+  opacity: 1;
+}
+
+.NavIndicatorActive {
+  background: var(--ColorAccent);
+  box-shadow: 0 6px 18px -8px rgb(0 0 0 / 0.6);
+}
+
+.NavIndicatorActive::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--Lime);
+  border: 1.5px solid var(--Midnight);
+  transform: scale(0);
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.NavList.HasIndicator:not(.IsMoving) .NavIndicatorActive::after {
+  transform: scale(1);
+}
+
+.NavList.IsMoving .NavIndicatorActive {
+  transform: translateX(var(--IndicatorX, 0)) scaleY(0.82);
+}
+
+.NavList.HasIndicator {
+  transition:
+    box-shadow var(--Medium) var(--EaseOut),
+    border-color var(--Medium) var(--Ease),
+    transform var(--Medium) var(--EaseBounce);
+}
+
+.NavList.HasIndicator:hover {
+  border-color: color-mix(in srgb, var(--ColorAccent) 40%, transparent);
+  box-shadow: 4px 4px 0 var(--ColorText);
+  transform: translate(-2px, -2px);
+}
+
+.NavLink:active {
+  transform: scale(0.94);
+}
+
+.NavProgress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--Violet), var(--Pink));
+  transform-origin: left;
+  transform: scaleX(var(--Progress, 0));
+  border-radius: 0 3px 3px 0;
+  opacity: 0;
+  transition: opacity var(--Medium) var(--Ease);
+}
+
+.Navbar.IsScrolled .NavProgress {
+  opacity: 1;
+}
+
+.Curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.Curtain.IsActive {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.CurtainPanel {
+  position: absolute;
+  inset: 0;
+  transform: translateY(100%);
+}
+
+.CurtainPanelPink {
+  background: var(--Pink);
+}
+
+.CurtainPanelViolet {
+  background: var(--Violet);
+}
+
+.CurtainMark {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(2.5rem, 1.5rem + 5vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: var(--White);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.CurtainMark span {
+  color: var(--Lime);
+}
+
+.Curtain.IsIn .CurtainPanelPink {
+  transform: translateY(0);
+  transition: transform 420ms cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.Curtain.IsIn .CurtainPanelViolet {
+  transform: translateY(0);
+  transition: transform 420ms cubic-bezier(0.7, 0, 0.3, 1) 80ms;
+}
+
+.Curtain.IsIn .CurtainMark {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 260ms var(--Ease) 260ms,
+    transform 420ms var(--EaseOut) 260ms;
+}
+
+.Curtain.IsOut .CurtainPanelPink {
+  transform: translateY(-100%);
+  transition: transform 480ms cubic-bezier(0.7, 0, 0.3, 1) 80ms;
+}
+
+.Curtain.IsOut .CurtainPanelViolet {
+  transform: translateY(-100%);
+  transition: transform 480ms cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.Curtain.IsOut .CurtainMark {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition:
+    opacity 200ms var(--Ease),
+    transform 300ms var(--Ease);
+}
+
+.NavMenuFoot {
+  display: none;
+}
+
+.NavActions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.LangSwitch {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3px;
+  border: 1px solid var(--ColorLine);
+  border-radius: 999px;
+  background: var(--ColorSurface);
+}
+
+.LangThumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  border-radius: 999px;
+  background: var(--ColorInk);
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.LangSwitch[data-active="en"] .LangThumb {
+  transform: translateX(100%);
+}
+
+.LangOption {
+  position: relative;
+  z-index: 1;
+  min-width: 38px;
+  height: 34px;
+  padding: 0 0.6rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ColorMuted);
+  transition: color var(--Medium) var(--Ease);
+}
+
+.LangOption[aria-pressed="true"] {
+  color: var(--ColorOnInk);
+}
+
+.MenuToggle {
+  display: none;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--ColorInk);
+  color: var(--ColorOnInk);
+}
+
+.MenuToggleLine {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition:
+    transform var(--Medium) var(--EaseOut),
+    top var(--Medium) var(--EaseOut);
+}
+
+.MenuToggleLine:first-child {
+  top: 16px;
+}
+
+.MenuToggleLine:last-child {
+  top: 24px;
+}
+
+.MenuToggle[aria-expanded="true"] .MenuToggleLine:first-child {
+  top: 20px;
+  transform: rotate(45deg);
+}
+
+.MenuToggle[aria-expanded="true"] .MenuToggleLine:last-child {
+  top: 20px;
+  transform: rotate(-45deg);
+}
+
+.Button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 54px;
+  padding: 0.9rem 1.6rem;
+  border: 2px solid var(--ColorEdge);
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition:
+    transform var(--Medium) var(--EaseBounce),
+    box-shadow var(--Medium) var(--EaseBounce),
+    background-color var(--Fast) var(--Ease),
+    color var(--Fast) var(--Ease);
+}
+
+.Button i {
+  font-size: 0.85em;
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.ButtonPrimary {
+  background: var(--ColorAccent);
+  border-color: var(--ColorText);
+  color: var(--ColorOnAccent);
+}
+
+.ButtonGhost {
+  background: var(--ColorSurface);
+  color: var(--ColorText);
+}
+
+.Button:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--ShadowPop);
+}
+
+.ButtonGhost:hover {
+  background: var(--ColorSecondary);
+  color: var(--Midnight);
+}
+
+.Button:active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 var(--ColorText);
+}
+
+.Button:hover .fa-arrow-right {
+  transform: translateX(4px);
+}
+
+.Button:hover .fa-arrow-down {
+  transform: translateY(3px);
+}
+
+.Eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.95rem 0.45rem 0.75rem;
+  border: 1px solid var(--ColorLine);
+  border-radius: 999px;
+  background: var(--ColorSurface);
+  font-family: var(--FontMono);
+  font-size: var(--SizeMicro);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.InlineSparkle {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  fill: var(--ColorSecondary);
+}
+
+.SectionHead {
+  margin-bottom: clamp(1.5rem, 5vh, 4rem);
+}
+
+.SectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: clamp(0.75rem, 2.2vh, 1.5rem);
+  font-size: var(--SizeMicro);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ColorMuted);
+}
+
+.SectionNumber {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2.4rem;
+  height: 1.7rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: var(--ColorInk);
+  color: var(--ColorOnInk);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+.SectionTitle {
+  font-size: var(--SizeSection);
+  max-width: 14ch;
+}
+
+.SectionLead {
+  max-width: 34ch;
+  font-size: var(--SizeLead);
+  color: var(--ColorMuted);
+}
+
+.Sphere {
+  position: absolute;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.SphereViolet {
+  background: radial-gradient(circle at 32% 28%, var(--SphereVioletLight) 0 6%, var(--SphereVioletBase) 38%, var(--SphereVioletDeep) 88%);
+  box-shadow: inset -10px -14px 30px color-mix(in srgb, var(--SphereVioletDeep) 60%, transparent);
+}
+
+.SpherePink {
+  background: radial-gradient(circle at 32% 28%, var(--SpherePinkLight) 0 6%, var(--SpherePinkBase) 40%, var(--SpherePinkDeep) 92%);
+  box-shadow: inset -8px -12px 26px color-mix(in srgb, var(--SpherePinkDeep) 55%, transparent);
+}
+
+.SphereLilac {
+  background: radial-gradient(circle at 32% 28%, var(--SphereLilacLight) 0 8%, var(--SphereLilacBase) 45%, var(--SphereLilacDeep) 95%);
+}
+
+.Sparkle {
+  position: absolute;
+  fill: var(--ColorSecondary);
+}
+
+.Squiggle path {
+  stroke: var(--ColorText);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.LimeDot {
+  position: absolute;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--Lime);
+  border: 2px solid var(--Midnight);
+}
+
+.Badge {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ColorInk);
+  color: var(--ColorOnInk);
+  display: grid;
+  place-items: center;
+}
+
+.BadgeRing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: Spin 26s linear infinite;
+}
+
+.BadgeRing text {
+  fill: currentColor;
+  font-family: var(--FontSans);
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.BadgeCenter {
+  width: 30%;
+  height: 30%;
+  fill: var(--Lime);
+}
+
+.AppWindow {
+  position: absolute;
+  border: 2px solid var(--Midnight);
+  border-radius: 16px;
+  background: var(--White);
+  box-shadow: 6px 6px 0 var(--Midnight);
+  overflow: visible;
+}
+
+.AppBar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 10px;
+  border-bottom: 2px solid var(--Midnight);
+  background: var(--Lilac);
+  border-radius: 14px 14px 0 0;
+}
+
+.AppDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--Midnight);
+  background: var(--White);
+}
+
+.AppDot:first-child {
+  background: var(--HotPink);
+}
+
+.AppDot:nth-child(2) {
+  background: var(--Lime);
+}
+
+.AppFile {
+  margin-left: auto;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--Midnight);
+  letter-spacing: 0.04em;
+}
+
+.AppBody {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 12px;
+}
+
+.Swatch {
+  aspect-ratio: 0.8;
+  border-radius: 10px;
+  border: 1.5px solid var(--Midnight);
+  transition: transform var(--Medium) var(--EaseBounce);
+}
+
+.SwatchViolet {
+  background: var(--Violet);
+}
+
+.SwatchPink {
+  background: var(--Pink);
+}
+
+.SwatchLilac {
+  background: var(--Lavender);
+}
+
+.SwatchLime {
+  background: var(--Lime);
+}
+
+.AppCursor {
+  position: absolute;
+  right: 18%;
+  bottom: -14px;
+  font-size: 1.4rem;
+  color: var(--Midnight);
+  filter: drop-shadow(1.5px 1.5px 0 var(--White));
+  animation: CursorNudge 5s var(--Ease) infinite;
+}
+
+.Sticker {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border: 2px solid var(--Midnight);
+  border-radius: 999px;
+  background: var(--Lime);
+  color: var(--Midnight);
+  font-size: var(--SizeSmall);
+  font-weight: 800;
+  box-shadow: 4px 4px 0 var(--Midnight);
+}
+
+.Js [data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity var(--Slow) var(--EaseOut),
+    transform var(--Slow) var(--EaseOut);
+  transition-delay: var(--RevealDelay, 0ms);
+}
+
+.Js [data-reveal].IsVisible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes Spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes CursorNudge {
+  0%,
+  70%,
+  100% {
+    transform: translate(0, 0);
+  }
+  80% {
+    transform: translate(-10px, -6px);
+  }
+  90% {
+    transform: translate(-10px, -6px) scale(0.9);
+  }
+}
+
+@keyframes Float {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes Morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  }
+  33% {
+    border-radius: 63% 37% 45% 55% / 52% 62% 38% 48%;
+  }
+  66% {
+    border-radius: 38% 62% 56% 44% / 63% 35% 65% 37%;
+  }
+}
+
+@keyframes Twinkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+  }
+  50% {
+    transform: scale(0.75) rotate(45deg);
+  }
+}
+
+@keyframes Pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes Marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+[data-section].Enter > .Container {
+  animation: var(--EnterName, EnterRise) var(--EnterTime, 900ms) var(--EaseOut) 120ms both;
+}
+
+.Hero {
+  --EnterName: EnterDrop;
+}
+
+.About {
+  --EnterName: EnterRise;
+}
+
+.Toolkit {
+  --EnterName: EnterFade;
+}
+
+.Code {
+  --EnterName: EnterGlitch;
+}
+
+.Code.Enter .StackItem {
+  animation: EnterSlide 650ms var(--EaseOut) both;
+}
+
+.Code.Enter .StackItem:nth-child(1) { animation-delay: 320ms; }
+.Code.Enter .StackItem:nth-child(2) { animation-delay: 400ms; }
+.Code.Enter .StackItem:nth-child(3) { animation-delay: 480ms; }
+.Code.Enter .StackItem:nth-child(4) { animation-delay: 560ms; }
+
+.Universe {
+  --EnterName: EnterWarp;
+  --EnterTime: 1100ms;
+}
+
+.Education {
+  --EnterName: EnterSlide;
+}
+
+.Contact {
+  --EnterName: EnterIris;
+  --EnterTime: 1000ms;
+}
+
+.Universe.Enter .Planet {
+  animation: EnterPop 700ms var(--EaseBounce) both;
+}
+
+.Universe.Enter .Planet:nth-child(1) { animation-delay: 380ms; }
+.Universe.Enter .Planet:nth-child(2) { animation-delay: 450ms; }
+.Universe.Enter .Planet:nth-child(3) { animation-delay: 520ms; }
+.Universe.Enter .Planet:nth-child(4) { animation-delay: 590ms; }
+.Universe.Enter .Planet:nth-child(5) { animation-delay: 660ms; }
+.Universe.Enter .Planet:nth-child(6) { animation-delay: 730ms; }
+
+.Education.Enter .PathStop {
+  animation: EnterSlide 700ms var(--EaseOut) both;
+}
+
+.Education.Enter .PathStop:nth-child(1) { animation-delay: 300ms; }
+.Education.Enter .PathStop:nth-child(2) { animation-delay: 380ms; }
+.Education.Enter .PathStop:nth-child(3) { animation-delay: 460ms; }
+.Education.Enter .PathStop:nth-child(4) { animation-delay: 540ms; }
+
+@keyframes EnterDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+}
+
+@keyframes EnterRise {
+  from {
+    opacity: 0;
+    transform: translateY(90px);
+  }
+}
+
+@keyframes EnterFade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes EnterTilt {
+  from {
+    opacity: 0;
+    transform: scale(0.9) rotate(-2.5deg);
+  }
+}
+
+@keyframes EnterGlitch {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px) skewX(10deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(8px) skewX(-3deg);
+  }
+}
+
+@keyframes EnterWarp {
+  from {
+    opacity: 0;
+    transform: scale(1.14);
+    filter: blur(12px);
+  }
+}
+
+@keyframes EnterPop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@keyframes EnterSlide {
+  from {
+    opacity: 0;
+    transform: translateX(14vw);
+  }
+}
+
+@keyframes EnterIris {
+  from {
+    clip-path: circle(0% at 50% 50%);
+  }
+  to {
+    clip-path: circle(120% at 50% 50%);
+  }
+}
+
+.Section {
+  overflow: clip;
+  isolation: isolate;
+}
+
+.Section > .Container {
+  position: relative;
+  z-index: 1;
+}
+
+.Section::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  width: 62vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--AuraColor, rgb(121 84 246 / 0.16)), transparent 62%);
+  pointer-events: none;
+}
+
+.About::before {
+  left: -22vw;
+  top: -18vh;
+  --AuraColor: rgb(121 84 246 / 0.3);
+}
+
+.Toolkit::before {
+  right: -20vw;
+  bottom: -28vh;
+  --AuraColor: rgb(233 91 170 / 0.22);
+}
+
+.Code::before {
+  right: -16vw;
+  top: -20vh;
+  --AuraColor: rgb(121 84 246 / 0.32);
+}
+
+.Universe::before {
+  left: 20vw;
+  top: -10vh;
+  --AuraColor: rgb(233 91 170 / 0.2);
+}
+
+.Education::before {
+  left: -18vw;
+  bottom: -30vh;
+  --AuraColor: rgb(121 84 246 / 0.28);
+}
+
+.Contact::before {
+  right: -20vw;
+  top: -24vh;
+  --AuraColor: rgb(233 91 170 / 0.22);
+}
+
+[data-mark]::after {
+  content: attr(data-mark);
+  position: absolute;
+  z-index: -1;
+  right: -0.04em;
+  bottom: -0.12em;
+  font-size: clamp(7rem, min(22vw, 34vh), 22rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.07em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--MarkStroke, rgb(185 165 255 / 0.18));
+  pointer-events: none;
+  user-select: none;
+}
+
+.Toolkit[data-mark]::after,
+.Universe[data-mark]::after {
+  right: auto;
+  left: -0.04em;
+}
+
+.Code[data-mark]::after {
+  bottom: auto;
+  top: calc(var(--NavHeight) - 0.05em);
+}
+
+.Deco {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.DecoItem {
+  position: absolute;
+  left: var(--X);
+  top: var(--Y);
+}
+
+.DecoStar {
+  width: clamp(22px, 2.6vw, 34px);
+  height: clamp(22px, 2.6vw, 34px);
+  fill: var(--ColorSecondary);
+}
+
+.DecoStar.DecoLime {
+  fill: var(--Lime);
+  stroke: var(--Midnight);
+  stroke-width: 0.8;
+}
+
+.DecoRing {
+  width: clamp(28px, 3vw, 44px);
+  aspect-ratio: 1;
+  border: 2.5px solid var(--ColorAccent);
+  border-radius: 50%;
+}
+
+.DecoDot {
+  width: 14px;
+  aspect-ratio: 1;
+  border: 2px solid var(--Midnight);
+  border-radius: 50%;
+  background: var(--Lime);
+}
+
+.DecoDot.DecoPink {
+  background: var(--Pink);
+}
+
+.DecoPlus,
+.DecoBrace {
+  font-family: var(--FontMono);
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ColorAccent);
+}
+
+.DecoBrace {
+  color: var(--ColorSecondary);
+}

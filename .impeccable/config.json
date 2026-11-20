@@ -1,0 +1,53 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "icon-tile-stack",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-20T17:56:02.258Z",
+        "reason": "claude: tool marks render side-by-side with the tool name (grid row on desktop, mark|name areas on mobile), verified in screenshots"
+      },
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-20T18:17:57.113Z",
+        "reason": "claude: 2px ink outlines with offset shadows on rounded stickers are the Digital Pop sticker language the user's brief asks for, not an accent stripe"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-20T18:23:48.564Z",
+        "reason": "user confirmed: explicitly requested an infinite horizontal scrolling marquee for the concepts band (with reduced-motion fallback)"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-20T21:32:42.000Z",
+        "reason": "user confirmed: the soft violet/pink section lights (started from the hero glow) are the look they approved for the dark theme and asked not to change"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-20T21:35:00.000Z",
+        "reason": "claude: no colored blurred shadows remain; the only zero-offset shadows are the button's invisible 0 0 0 resting state for its pop transition and a 1px neutral white ring on the code color chip"
+      }
+    ]
+  }
+}
