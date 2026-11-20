@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <a href="https://milena0201-g.github.io/">
+  <a href="https://milena0201-g.github.io/milena0201-g/">
     <img src="Assets/Images/OpenGraph.png" width="88%" alt="Vista previa del portafolio de Milena Guevara" />
   </a>
 </p>
