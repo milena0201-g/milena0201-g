@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <a href="https://milena0201-g.github.io/">
+  <a href="https://milena0201-g.github.io/milena0201-g/">
     <img src="https://img.shields.io/badge/🌐%20%20Visitar%20mi%20portafolio-7954F6?style=for-the-badge&labelColor=7954F6" height="42" alt="Visitar mi portafolio" />
   </a>
   &nbsp;
@@ -193,7 +193,7 @@ const milena = {
 </p>
 
 <p align="center">
-  <a href="https://milena0201-g.github.io/">
+  <a href="https://milena0201-g.github.io/milena0201-g/">
     <img src="https://img.shields.io/badge/Portafolio-7954F6?style=for-the-badge&logo=githubpages&logoColor=white" alt="Portafolio" />
   </a>
   <a href="https://www.linkedin.com/in/milena-guevara-s%C3%A1nchez-2a94343a3/">
